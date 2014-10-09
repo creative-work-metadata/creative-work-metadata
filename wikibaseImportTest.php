@@ -18,7 +18,7 @@ if ( !$json ) {
 	die( "ERROR: failed to load data from $url\n" );
 }
 
-$data = json_decode( $json );
+$data = json_decode( $json, JSON_OBJECT_AS_ARRAY );
 
 if ( !$data ) {
 	die( "ERROR: failed to decode JSON from $url\n" );
@@ -27,7 +27,8 @@ if ( !$data ) {
 $wikibaseServices = new WikibaseServices();
 $entityDeserializer = $wikibaseServices->getEntityDeserializer();
 
-$item = $entityDeserializer->deserialize( $data );
+$itemData = reset( $data['entities'] );
+$item = $entityDeserializer->deserialize( $itemData );
 
 $transformerFactory = new WikidataTransformerFactory();
 $importer = $transformerFactory->getImportTransformer();
