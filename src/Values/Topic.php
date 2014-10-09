@@ -2,19 +2,21 @@
 
 namespace StructuredData\Values;
 
+use DataValues\MultilingualTextValue;
+
 /**
  * A Topic is something contained in the image.
  */
 class Topic {
 	/**
 	 * Name of the topic.
-	 * @var \DataValues\MultilingualTextValue
+	 * @var MultilingualTextValue
 	 */
 	protected $name;
 
 	/**
 	 * Description of the topic.
-	 * @var \DataValues\MultilingualTextValue|null
+	 * @var MultilingualTextValue|null
 	 */
 	protected $description;
 
@@ -25,28 +27,28 @@ class Topic {
 	protected $dataItem;
 
 	/**
-	 * @return \DataValues\MultilingualTextValue|null
+	 * @return MultilingualTextValue
 	 */
 	public function getName() {
 		return $this->name;
 	}
 
 	/**
-	 * @param \DataValues\MultilingualTextValue $name
+	 * @param MultilingualTextValue $name
 	 */
-	public function setName( $name ) {
+	public function setName( MultilingualTextValue $name ) {
 		$this->name = $name;
 	}
 
 	/**
-	 * @return \DataValues\MultilingualTextValue|null
+	 * @return MultilingualTextValue|null
 	 */
 	public function getDescription() {
 		return $this->description;
 	}
 
 	/**
-	 * @param \DataValues\MultilingualTextValue|null $description
+	 * @param MultilingualTextValue|null $description
 	 */
 	public function setDescription( $description ) {
 		$this->description = $description;

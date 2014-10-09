@@ -2,6 +2,9 @@
 
 namespace StructuredData\Values;
 
+use DataValues\MonolingualTextValue;
+use DataValues\MultilingualTextValue;
+
 /**
  * Source represents where the work came from. This can be a URL from which the work was downloaded
  * from, or something more abstract like a GLAM partnership or a competition.
@@ -9,65 +12,65 @@ namespace StructuredData\Values;
 class Source {
 	/**
 	 * Name of the source (such as an institution name), can be missing if source is just some URL
-	 * @var string|null
+	 * @var MultilingualTextValue|null
 	 */
 	protected $name;
 
 	/**
 	 * URI that points to the file
-	 * @var string
+	 * @var MonolingualTextValue|null
 	 */
 	protected $uri;
 
 	/**
 	 * URI that gives context; typically the URI of the page on which the file was found
-	 * @var string
+	 * @var MonolingualTextValue|null
 	 */
 	protected $contextUri;
 
 	/**
 	 * Wikidata item of the source (if it's e.g. a GLAM institution)
-	 * @var string
+	 * @var string|null
 	 */
 	protected $dataItem;
 
 	/**
-	 * @return string
+	 * @return MultilingualTextValue
 	 */
 	public function getName() {
 		return $this->name;
 	}
 
 	/**
-	 * @param string $name
+	 * @param MultilingualTextValue|null $name
 	 */
 	public function setName( $name ) {
 		$this->name = $name;
 	}
 
 	/**
-	 * @return string
+	 * @return MonolingualTextValue|null
 	 */
 	public function getUri() {
 		return $this->uri;
 	}
 
 	/**
-	 * @param string $uri
+	 * @param MonolingualTextValue|null $uri
 	 */
 	public function setUri( $uri ) {
 		$this->uri = $uri;
 	}
 
 	/**
-	 * @return string
+	 * @return MonolingualTextValue|null
 	 */
 	public function getContextUri() {
 		return $this->contextUri;
 	}
 
 	/**
-	 * @param string $contextUri
+	 * @param MonolingualTextValue|null $contextUri
 	 */
 	public function setContextUri( $contextUri ) {
 		$this->contextUri = $contextUri;

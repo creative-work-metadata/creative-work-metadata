@@ -2,6 +2,8 @@
 
 namespace StructuredData\Values;
 
+use DataValues\MultilingualTextValue;
+
 /**
  * A UsageRestriction is a non-copyright limitation on how the work can be reused (e.g. personality
  * rights).
@@ -18,14 +20,14 @@ class UsageRestriction {
 
 	/**
 	 * A name for the restriction (e.g. "personality rights").
-	 * @var \DataValues\MultilingualTextValue
+	 * @var MultilingualTextValue
 	 */
 	protected $name;
 
 	/**
 	 * An explanation of the restriction (e.g. "This image depcits identifiable persons; their
 	 * permission might be required for reuse.")
-	 * @var \DataValues\MultilingualTextValue|null
+	 * @var MultilingualTextValue|null
 	 */
 	protected $description;
 
@@ -50,28 +52,28 @@ class UsageRestriction {
 	}
 
 	/**
-	 * @return \DataValues\MultilingualTextValue
+	 * @return MultilingualTextValue
 	 */
 	public function getName() {
 		return $this->name;
 	}
 
 	/**
-	 * @param \DataValues\MultilingualTextValue $name
+	 * @param MultilingualTextValue $name
 	 */
-	public function setName( $name ) {
+	public function setName( MultilingualTextValue $name ) {
 		$this->name = $name;
 	}
 
 	/**
-	 * @return \DataValues\MultilingualTextValue|null
+	 * @return MultilingualTextValue|null
 	 */
 	public function getDescription() {
 		return $this->description;
 	}
 
 	/**
-	 * @param \DataValues\MultilingualTextValue|null $description
+	 * @param MultilingualTextValue|null $description
 	 */
 	public function setDescription( $description ) {
 		$this->description = $description;

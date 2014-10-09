@@ -21,28 +21,35 @@ class UseRationale {
 	protected $usagePermission;
 
 	/**
-	 * @return \StructuredData\Values\UsageRequirement[]
+	 * @return UsageRequirement[]
 	 */
 	public function getUsageRequirements() {
 		return $this->usageRequirements;
 	}
 
 	/**
-	 * @param \StructuredData\Values\UsageRequirement[] $usageRequirements
+	 * @param UsageRequirement[] $usageRequirements
 	 */
-	public function setUsageRequirements( $usageRequirements ) {
+	public function setUsageRequirements( array $usageRequirements ) {
 		$this->usageRequirements = $usageRequirements;
 	}
 
 	/**
-	 * @return \StructuredData\Values\UsagePermission
+	 * @param UsageRequirement $usageRequirement
+	 */
+	public function addUsageRequirement( UsageRequirement $usageRequirement ) {
+		$this->usageRequirements[] = $usageRequirement;
+	}
+
+	/**
+	 * @return UsagePermission
 	 */
 	public function getUsagePermission() {
 		return $this->usagePermission;
 	}
 
 	/**
-	 * @param \StructuredData\Values\UsagePermission $usagePermission
+	 * @param UsagePermission $usagePermission
 	 */
 	public function setUsagePermission( $usagePermission ) {
 		$this->usagePermission = $usagePermission;

@@ -2,6 +2,9 @@
 
 namespace StructuredData\Values;
 
+use DataValues\Geo\Values\LatLongValue;
+use DataValues\TimeValue;
+
 /**
  * An event (point in time and space) that's relevant for determining copyright, such as first
  * publication of the work.
@@ -29,7 +32,7 @@ class CopyrightEvent {
 	 * Berne convention defines all publications happening within 30 days as part of the
 	 * first publication.
 	 *
-	 * @var \DataValues\Geo\Values\LatLongValue[]
+	 * @var LatLongValue[]
 	 */
 	protected $locations = array();
 
@@ -48,30 +51,37 @@ class CopyrightEvent {
 	}
 
 	/**
-	 * @return \DataValues\TimeValue
+	 * @return TimeValue
 	 */
 	public function getDate() {
 		return $this->date;
 	}
 
 	/**
-	 * @param \DataValues\TimeValue $date
+	 * @param TimeValue $date
 	 */
-	public function setDate( $date ) {
+	public function setDate( TimeValue $date ) {
 		$this->date = $date;
 	}
 
 	/**
-	 * @return \DataValues\Geo\Values\LatLongValue[]
+	 * @return LatLongValue[]
 	 */
 	public function getLocations() {
 		return $this->locations;
 	}
 
 	/**
-	 * @param \DataValues\Geo\Values\LatLongValue[] $locations
+	 * @param LatLongValue[] $locations
 	 */
-	public function setLocations( $locations ) {
+	public function setLocations( array $locations ) {
 		$this->locations = $locations;
+	}
+
+	/**
+	 * @param LatLongValue $location
+	 */
+	public function addLocation( LatLongValue $location ) {
+		$this->locations[] = $location;
 	}
 }

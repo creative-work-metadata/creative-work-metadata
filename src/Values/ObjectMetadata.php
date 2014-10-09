@@ -2,20 +2,23 @@
 
 namespace StructuredData\Values;
 
+use DataValues\MultilingualTextValue;
+use DataValues\Geo\Values\LatLongValue;
+
 /**
  * Main metadata class representing a creative work.
  */
 class ObjectMetadata {
 	/**
 	 * Name of the work.
-	 * @var \DataValues\MultilingualTextValue|null
+	 * @var MultilingualTextValue|null
 	 */
 	protected $title;
 
 	/**
 	 * Description of the object.
 	 * Can be long, can contain HTML (or wikitext), including block-level formatting.
-	 * @var \DataValues\MultilingualTextValue|null
+	 * @var MultilingualTextValue|null
 	 */
 	protected $description;
 
@@ -41,7 +44,7 @@ class ObjectMetadata {
 
 	/**
 	 * Location of the object.
-	 * @var \DataValues\Geo\Values\LatLongValue
+	 * @var LatLongValue
 	 */
 	protected $location;
 
@@ -52,101 +55,123 @@ class ObjectMetadata {
 	protected $topics = array();
 
 	/**
-	 * @return \DataValues\MultilingualTextValue|null
+	 * @return MultilingualTextValue|null
 	 */
 	public function getTitle() {
 		return $this->title;
 	}
 
 	/**
-	 * @param \DataValues\MultilingualTextValue|null $title
+	 * @param MultilingualTextValue|null $title
 	 */
 	public function setTitle( $title ) {
 		$this->title = $title;
 	}
 
 	/**
-	 * @return \DataValues\MultilingualTextValue|null
+	 * @return MultilingualTextValue|null
 	 */
 	public function getDescription() {
 		return $this->description;
 	}
 
 	/**
-	 * @param \DataValues\MultilingualTextValue|null $description
+	 * @param MultilingualTextValue|null $description
 	 */
 	public function setDescription( $description ) {
 		$this->description = $description;
 	}
 
 	/**
-	 * @return \StructuredData\Values\Source[]
+	 * @return Source[]
 	 */
 	public function getSources() {
 		return $this->sources;
 	}
 
 	/**
-	 * @param \StructuredData\Values\Source[] $sources
+	 * @param Source[] $sources
 	 */
-	public function setSources( $sources ) {
+	public function setSources( array $sources ) {
 		$this->sources = $sources;
 	}
 
 	/**
-	 * @return \StructuredData\Values\Work[]
+	 * @param Source $source
+	 */
+	public function addSource( Source $source ) {
+		$this->sources[] = $source;
+	}
+
+	/**
+	 * @return Work[]
 	 */
 	public function getWorks() {
 		return $this->works;
 	}
 
 	/**
-	 * @param \StructuredData\Values\Work[] $works
+	 * @param Work[] $works
 	 */
-	public function setWorks( $works ) {
+	public function setWorks( array $works ) {
 		$this->works = $works;
 	}
 
+	public function addWork( Work $work ) {
+		$this->works[] = $work;
+	}
+
 	/**
-	 * @return \StructuredData\Values\UsageRestriction[]
+	 * @return UsageRestriction[]
 	 */
 	public function getUsageRestrictions() {
 		return $this->usageRestrictions;
 	}
 
 	/**
-	 * @param \StructuredData\Values\UsageRestriction[] $usageRestrictions
+	 * @param UsageRestriction[] $usageRestrictions
 	 */
-	public function setUsageRestrictions( $usageRestrictions ) {
+	public function setUsageRestrictions( array $usageRestrictions ) {
 		$this->usageRestrictions = $usageRestrictions;
 	}
 
+	public function addUsageRestriction( UsageRestriction $usageRestriction ) {
+		$this->usageRestrictions[] = $usageRestriction;
+	}
+
 	/**
-	 * @return \DataValues\Geo\Values\LatLongValue
+	 * @return LatLongValue
 	 */
 	public function getLocation() {
 		return $this->location;
 	}
 
 	/**
-	 * @param \DataValues\Geo\Values\LatLongValue $location
+	 * @param LatLongValue $location
 	 */
 	public function setLocation( $location ) {
 		$this->location = $location;
 	}
 
 	/**
-	 * @return \StructuredData\Values\Topic[]
+	 * @return Topic[]
 	 */
 	public function getTopics() {
 		return $this->topics;
 	}
 
 	/**
-	 * @param \StructuredData\Values\Topic[] $topics
+	 * @param Topic[] $topics
 	 */
-	public function setTopics( $topics ) {
+	public function setTopics( array $topics ) {
 		$this->topics = $topics;
+	}
+
+	/**
+	 * @param Topic $topic
+	 */
+	public function addTopic( Topic $topic ) {
+		$this->topics[] = $topic;
 	}
 
 	// -----------------------------------------------------------------------

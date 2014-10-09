@@ -2,6 +2,8 @@
 
 namespace StructuredData\Values;
 
+use DataValues\MultilingualTextValue;
+
 /**
  * Use rationale for public domain works.
  */
@@ -22,14 +24,14 @@ class PublicDomain extends UseRationale {
 
 	/**
 	 * Name of the rationale (e.g. "Work made by NASA")
-	 * @var \DataValues\MultilingualTextValue
+	 * @var MultilingualTextValue
 	 */
 	protected $name;
 
 	/**
 	 * Detailed description, e.g. to show in an upload interface
 	 * (is this needed?)
-	 * @var \DataValues\MultilingualTextValue|null
+	 * @var MultilingualTextValue|null
 	 */
 	protected $description;
 
@@ -62,28 +64,28 @@ class PublicDomain extends UseRationale {
 	}
 
 	/**
-	 * @return \DataValues\MultilingualTextValue
+	 * @return MultilingualTextValue
 	 */
 	public function getName() {
 		return $this->name;
 	}
 
 	/**
-	 * @param \DataValues\MultilingualTextValue $name
+	 * @param MultilingualTextValue $name
 	 */
 	public function setName( $name ) {
 		$this->name = $name;
 	}
 
 	/**
-	 * @return \DataValues\MultilingualTextValue|null
+	 * @return MultilingualTextValue|null
 	 */
 	public function getDescription() {
 		return $this->description;
 	}
 
 	/**
-	 * @param \DataValues\MultilingualTextValue|null $description
+	 * @param MultilingualTextValue|null $description
 	 */
 	public function setDescription( $description ) {
 		$this->description = $description;

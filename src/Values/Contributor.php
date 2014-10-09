@@ -2,6 +2,9 @@
 
 namespace StructuredData\Values;
 
+use DataValues\MonolingualTextValue;
+use DataValues\MultilingualTextValue;
+
 /**
  * A Contributor is a person (or maybe institution) who participated in creating the work in a way
  * that's important enough to be credited in some form.
@@ -19,13 +22,13 @@ class Contributor {
 
 	/**
 	 * Name of the contributor (in the form in which it is supposed to appear in the attribution).
-	 * @var \DataValues\MonolingualTextValue
+	 * @var MonolingualTextValue
 	 */
 	protected $name;
 
 	/**
 	 * URI with more information about the contributor, e.g. home page, user page...
-	 * @var \DataValues\MonolingualTextValue|null
+	 * @var MonolingualTextValue|null
 	 */
 	protected $uri;
 
@@ -37,7 +40,7 @@ class Contributor {
 
 	/**
 	 * Wiki username of the contributor
-	 * @var \DataValues\MonolingualTextValue|null
+	 * @var MonolingualTextValue|null
 	 */
 	protected $wikiAccount;
 
@@ -51,33 +54,40 @@ class Contributor {
 	/**
 	 * @param string[] $roles
 	 */
-	public function setRoles( $roles ) {
+	public function setRoles( array $roles ) {
 		$this->roles = $roles;
 	}
 
 	/**
-	 * @return \DataValues\MonolingualTextValue
+	 * @param string $role
+	 */
+	public function addRole( $role ) {
+		$this->roles[] = $role;
+	}
+
+	/**
+	 * @return MonolingualTextValue
 	 */
 	public function getName() {
 		return $this->name;
 	}
 
 	/**
-	 * @param \DataValues\MonolingualTextValue $name
+	 * @param MonolingualTextValue $name
 	 */
-	public function setName( $name ) {
+	public function setName( MonolingualTextValue $name ) {
 		$this->name = $name;
 	}
 
 	/**
-	 * @return \DataValues\MonolingualTextValue|null
+	 * @return MonolingualTextValue|null
 	 */
 	public function getUri() {
 		return $this->uri;
 	}
 
 	/**
-	 * @param \DataValues\MonolingualTextValue|null $uri
+	 * @param MonolingualTextValue|null $uri
 	 */
 	public function setUri( $uri ) {
 		$this->uri = $uri;
@@ -98,14 +108,14 @@ class Contributor {
 	}
 
 	/**
-	 * @return \DataValues\MonolingualTextValue|null
+	 * @return MonolingualTextValue|null
 	 */
 	public function getWikiAccount() {
 		return $this->wikiAccount;
 	}
 
 	/**
-	 * @param \DataValues\MonolingualTextValue|null $wikiAccount
+	 * @param MonolingualTextValue|null $wikiAccount
 	 */
 	public function setWikiAccount( $wikiAccount ) {
 		$this->wikiAccount = $wikiAccount;

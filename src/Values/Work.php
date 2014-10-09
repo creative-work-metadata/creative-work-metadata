@@ -2,6 +2,8 @@
 
 namespace StructuredData\Values;
 
+use DataValues\MultilingualTextValue;
+
 /**
  * A Work is, in the first approximation, something that can be copyrighted separately. An object
  * can contain multiple works; e.g. a photograph of a statue contains at least two works, the
@@ -19,7 +21,7 @@ class Work {
 
 	/**
 	 * Title of the work.
-	 * @var \DataValues\MultilingualTextValue|null
+	 * @var MultilingualTextValue|null
 	 */
 	protected $title;
 
@@ -56,58 +58,79 @@ class Work {
 	}
 
 	/**
-	 * @return \DataValues\MultilingualTextValue|null
+	 * @return MultilingualTextValue|null
 	 */
 	public function getTitle() {
 		return $this->title;
 	}
 
 	/**
-	 * @param \DataValues\MultilingualTextValue|null $title
+	 * @param MultilingualTextValue|null $title
 	 */
 	public function setTitle( $title ) {
 		$this->title = $title;
 	}
 
 	/**
-	 * @return \StructuredData\Values\CopyrightEvent[]
+	 * @return CopyrightEvent[]
 	 */
 	public function getEvents() {
 		return $this->events;
 	}
 
 	/**
-	 * @param \StructuredData\Values\CopyrightEvent[] $events
+	 * @param CopyrightEvent[] $events
 	 */
-	public function setEvents( $events ) {
+	public function setEvents( array $events ) {
 		$this->events = $events;
 	}
 
 	/**
-	 * @return \StructuredData\Values\Contributor[]
+	 * @param CopyrightEvent $event
+	 */
+	public function addEvent( CopyrightEvent $event ) {
+		$this->events[] = $event;
+	}
+
+	/**
+	 * @return Contributor[]
 	 */
 	public function getContributors() {
 		return $this->contributors;
 	}
 
 	/**
-	 * @param \StructuredData\Values\Contributor[] $contributors
+	 * @param Contributor[] $contributors
 	 */
-	public function setContributors( $contributors ) {
+	public function setContributors( array $contributors ) {
 		$this->contributors = $contributors;
 	}
 
 	/**
-	 * @return \StructuredData\Values\UseRationale[]
+	 * @param Contributor $contributor
+	 */
+	public function addContributor( Contributor $contributor ) {
+		$this->contributors[] = $contributor;
+	}
+
+	/**
+	 * @return UseRationale[]
 	 */
 	public function getUseRationales() {
 		return $this->useRationales;
 	}
 
 	/**
-	 * @param \StructuredData\Values\UseRationale[] $useRationales
+	 * @param UseRationale[] $useRationales
 	 */
-	public function setUseRationales( $useRationales ) {
+	public function setUseRationales( array $useRationales ) {
 		$this->useRationales = $useRationales;
+	}
+
+	/**
+	 * @param UseRationale $useRationale
+	 */
+	public function addUseRationale( UseRationale $useRationale ) {
+		$this->useRationales[] = $useRationale;
 	}
 }
