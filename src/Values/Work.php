@@ -44,17 +44,24 @@ class Work {
 	protected $useRationales = array();
 
 	/**
-	 * @return string
+	 * @return string[]
 	 */
-	public function getType() {
-		return $this->type;
+	public function getTypes() {
+		return $this->types;
+	}
+
+	/**
+	 * @param string[] $types
+	 */
+	public function setTypes( array $types ) {
+		$this->types = $types;
 	}
 
 	/**
 	 * @param string $type
 	 */
-	public function setType( $type ) {
-		$this->type = $type;
+	public function addType( $type) {
+		$this->types[] = $type;
 	}
 
 	/**
