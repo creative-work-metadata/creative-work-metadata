@@ -5,7 +5,11 @@
 	"require": {
 		"php": ">=5.3.0",
 		"data-values/time": "*",
-		"data-values/geo": "*"
+		"data-values/geo": "*",
+		"wikibase/data-model": "*"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "*"
 	},
 	"autoload": {
 		"psr-4": {
