@@ -2,24 +2,69 @@
 
 namespace StructuredData\Values;
 
+/**
+ * Main metadata class representing a creative work.
+ */
 class ObjectMetadata {
-	/** @var string */
+	/**
+	 * Name of the work.
+	 * @var string
+	 */
+	protected $title;
+
+	/**
+	 * Description of the object.
+	 * Can be long, can contain HTML (or wikitext), including block-level formatting.
+	 * @var string
+	 */
 	protected $description;
 
-	/** @var Source[] */
+	/**
+	 * List of sources of the object.
+	 * @var Source[]
+	 */
 	protected $sources = array();
 
-	/** @var Work[] */
+	/**
+	 * The list of works contained in the object. This includes the work which is the object itself
+	 * and all originals. For example, a photograph of a sculpture contains two works, the
+	 * photograph itself and the sculpture.
+	 * @var Work[]
+	 */
 	protected $works = array();
 
-	/** @var UsageRestriction[] */
+	/**
+	 * List of usage restrictions for this object.
+	 * @var UsageRestriction[]
+	 */
 	protected $usageRestrictions = array();
 
-	/** @var \DataValues\Geo\Values\LatLongValue */
+	/**
+	 * Location of the object.
+	 * @var \DataValues\Geo\Values\LatLongValue
+	 */
 	protected $location;
 
-	/** @var Topic[] */
+	/**
+	 * Topics represented in the object (e.g. "cat" for an image showing a cat).
+	 * @var Topic[]
+	 */
 	protected $topics = array();
+
+
+	/**
+	 * @param string $title
+	 */
+	public function setTitle( $title ) {
+		$this->title = $title;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getTitle() {
+		return $this->title;
+	}
 
 	/**
 	 * @param string $description

@@ -2,17 +2,32 @@
 
 namespace StructuredData\Values;
 
+/**
+ * Representation of a license (such as CC-BY-SA-3.0-nl).
+ */
 class License extends UseRationale {
-	/** @var string */
+	/**
+	 * Wikidata item of the license.
+	 * @var string
+	 */
 	protected $dataItem;
 
-	/** @var string */
+	/**
+	 * Short name of the license (e.g. "CC-BY-SA-3.0-nl")
+	 * @var string
+	 */
 	protected $shortName;
 
-	/** @var string */
+	/**
+	 * Long name of the license (e.g. "Creative Commons Attribution-ShareAlike 3.0 Netherlands")
+	 * @var string
+	 */
 	protected $longName;
 
-	/** @var string */
+	/**
+	 * URI of the license deed
+	 * @var string
+	 */
 	protected $uri;
 
 	/**

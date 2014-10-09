@@ -2,17 +2,33 @@
 
 namespace StructuredData\Values;
 
+/**
+ * Use rationale for public domain works.
+ */
 class PublicDomain extends UseRationale {
-	/** @var int */
+	/**
+	 * Type of public domain rationale (e.g. "PD-USGov-NASA").
+	 * @var int
+	 */
 	protected $type;
 
-	/** @var string */
+	/**
+	 * Wikidata item describing the rationale
+	 * @var string
+	 */
 	protected $dataItem;
 
-	/** @var string */
+	/**
+	 * Name of the rationale (e.g. "Work made by NASA")
+	 * @var string
+	 */
 	protected $name;
 
-	/** @var string */
+	/**
+	 * Detailed description, e.g. to show in an upload interface
+	 * (is this needed?)
+	 * @var string
+	 */
 	protected $description;
 
 	/**

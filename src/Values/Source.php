@@ -2,14 +2,33 @@
 
 namespace StructuredData\Values;
 
+/**
+ * Source represents where the work came from. This can be a URL from which the work was downloaded
+ * from, or something more abstract like a GLAM partnership or a competition.
+ */
 class Source {
-	/** @var string */
+	/**
+	 * Name of the source (such as an institution name), can be missing if source is just some URL
+	 * @var string|null
+	 */
 	protected $name;
 
-	/** @var string */
+	/**
+	 * URI that points to the file
+	 * @var string
+	 */
 	protected $uri;
 
-	/** @var string */
+	/**
+	 * URI that gives context; typically the URI of the page on which the file was found
+	 * @var string
+	 */
+	protected $contextUri;
+
+	/**
+	 * Wikidata item of the source (if it's e.g. a GLAM institution)
+	 * @var string
+	 */
 	protected $dataItem;
 
 	/**
@@ -52,5 +71,19 @@ class Source {
 	 */
 	public function getUri() {
 		return $this->uri;
+	}
+
+	/**
+	 * @param string $contextUri
+	 */
+	public function setContextUri( $contextUri ) {
+		$this->contextUri = $contextUri;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getContextUri() {
+		return $this->contextUri;
 	}
 }

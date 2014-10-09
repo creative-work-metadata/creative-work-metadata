@@ -2,11 +2,21 @@
 
 namespace StructuredData\Values;
 
+/**
+ * A UsageRequirement is something required from reusers by the license (e.g. "you must attribute
+ * the author").
+ */
 class UsageRequirement {
-	/** @var int */
+	/**
+	 * Requirement type
+	 * @var int
+	 */
 	protected $type;
 
-	/** @var string */
+	/**
+	 * Wikidata item describing the requirement.
+	 * @var string
+	 */
 	protected $dataItem;
 
 	/**

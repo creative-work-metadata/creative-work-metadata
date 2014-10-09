@@ -2,20 +2,39 @@
 
 namespace StructuredData\Values;
 
+/**
+ * A Contributor is a person (or maybe institution) who participated in creating the work in a way
+ * that's important enough to be credited in some form.
+ */
 class Contributor {
-	/** @var int */
+	/**
+	 * Contributor role, such as author, photographer, uploader...
+	 * @var int
+	 */
 	protected $role;
 
-	/** @var string */
+	/**
+	 * Name of the contributor (in the form in which it is supposed to appear in the attribution).
+	 * @var string
+	 */
 	protected $name;
 
-	/** @var string */
+	/**
+	 * URI with more information about the contributor, e.g. home page, user page...
+	 * @var string|null
+	 */
 	protected $uri;
 
-	/** @var string */
+	/**
+	 * WikiData item of the contributor
+	 * @var string|null
+	 */
 	protected $dataItem;
 
-	/** @var string */
+	/**
+	 * Wiki username of the contributor
+	 * @var string|null
+	 */
 	protected $wikiAccount;
 
 	/**

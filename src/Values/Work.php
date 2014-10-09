@@ -2,23 +2,43 @@
 
 namespace StructuredData\Values;
 
+/**
+ * A Work is, in the first approximation, something that can be copyrighted separately. An object
+ * can contain multiple works; e.g. a photograph of a statue contains at least two works, the
+ * photograph and the statue.
+ *
+ * To simplify things, we track as Works some things that are not copyrightable but we want to be
+ * able to acknowledge them (such as an image restoration).
+ */
 class Work {
-	/** @var string */
-	protected $type;
+	/**
+	 * Type(s) of the work, e.g. "painting".
+	 * @var string[]
+	 */
+	protected $types;
 
-	/** @var string */
+	/**
+	 * Title of the work.
+	 * @var string
+	 */
 	protected $title;
 
-	/** @var string */
-	protected $description;
-
-	/** @var CopyrightEvent[] */
+	/**
+	 * Events that are relevant for determining the copyright status of the work.
+	 * @var CopyrightEvent[]
+	 */
 	protected $events = array();
 
-	/** @var Contributor[] */
+	/**
+	 * Persons who contributed to the work.
+	 * @var Contributor[]
+	 */
 	protected $contributors = array();
 
-	/** @var UseRationale[] */
+	/**
+	 * Use rationales (such as licenses) of the work.
+	 * @var UseRationale[]
+	 */
 	protected $useRationales = array();
 
 	/**
@@ -33,20 +53,6 @@ class Work {
 	 */
 	public function getContributors() {
 		return $this->contributors;
-	}
-
-	/**
-	 * @param string $description
-	 */
-	public function setDescription( $description ) {
-		$this->description = $description;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getDescription() {
-		return $this->description;
 	}
 
 	/**

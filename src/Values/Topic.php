@@ -2,14 +2,26 @@
 
 namespace StructuredData\Values;
 
+/**
+ * A Topic is something contained in the image.
+ */
 class Topic {
-	/** @var string */
+	/**
+	 * Name of the topic.
+	 * @var string
+	 */
 	protected $name;
 
-	/** @var string */
+	/**
+	 * Description of the topic.
+	 * @var string
+	 */
 	protected $description;
 
-	/** @var string */
+	/**
+	 * Wikidata ID of the topic.
+	 * @var string
+	 */
 	protected $dataItem;
 
 	/**

@@ -2,11 +2,22 @@
 
 namespace StructuredData\Values;
 
+/**
+ * The UseRationale describes why it is legal to use the work. It could be a license, or an
+ * assessment of legal status such as public domain.
+ */
 class UseRationale {
-	/** @var UsageRequirement */
+	/**
+	 * A list of requirements the reuser most honor to be able to use the work based on this
+	 * rationale.
+	 * @var UsageRequirement[]
+	 */
 	protected $usageRequirements = array();
 
-	/** @var UsagePermission */
+	/**
+	 * The permission for the work (if any).
+	 * @var UsagePermission|null
+	 */
 	protected $usagePermission;
 
 	/**
@@ -24,14 +35,14 @@ class UseRationale {
 	}
 
 	/**
-	 * @param \StructuredData\Values\UsageRequirement $usageRequirements
+	 * @param \StructuredData\Values\UsageRequirement[] $usageRequirements
 	 */
 	public function setUsageRequirements( $usageRequirements ) {
 		$this->usageRequirements = $usageRequirements;
 	}
 
 	/**
-	 * @return \StructuredData\Values\UsageRequirement
+	 * @return \StructuredData\Values\UsageRequirement[]
 	 */
 	public function getUsageRequirements() {
 		return $this->usageRequirements;
