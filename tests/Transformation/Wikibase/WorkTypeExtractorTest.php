@@ -3,6 +3,7 @@ namespace StructuredData\Transformation\Wikibase\Tests;
 
 use StructuredData\Transformation\Wikibase\WorkTypeExtractor;
 use StructuredData\Values\ObjectMetadata;
+use StructuredData\Values\Work;
 use Wikibase\DataModel\ByPropertyIdArray;
 use Wikibase\DataModel\Claim\Claim;
 use Wikibase\DataModel\Entity\EntityIdValue;
@@ -68,6 +69,8 @@ class WorkTypeExtractorTest extends \PHPUnit_Framework_TestCase {
 		$statementArray->buildIndex();
 
 		$metadata = new ObjectMetadata();
+		$metadata->setWorks( array( new Work() ) );
+
 		$extractor->extractStatementInfo( $statementArray, $metadata );
 
 		$types = $metadata->getFinalWork()->getTypes();

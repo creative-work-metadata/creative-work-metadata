@@ -7,6 +7,7 @@ use DataValues\MultilingualTextValue;
 use InvalidArgumentException;
 use StructuredData\Transformation\ImportTransformer;
 use StructuredData\Values\ObjectMetadata;
+use StructuredData\Values\Work;
 use Wikibase\DataModel\ByPropertyIdArray;
 use Wikibase\DataModel\Entity\Entity;
 use Wikibase\DataModel\Term\Fingerprint;
@@ -55,6 +56,7 @@ class WikibaseImportTransformer implements ImportTransformer {
 		}
 
 		$metadata = new ObjectMetadata();
+		$metadata->setWorks( array( new Work() ) );
 
 		$this->extractLexicalInfo( $entity->getFingerprint(), $metadata );
 
