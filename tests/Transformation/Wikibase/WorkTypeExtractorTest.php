@@ -70,7 +70,7 @@ class WorkTypeExtractorTest extends \PHPUnit_Framework_TestCase {
 		$metadata = new ObjectMetadata();
 		$extractor->extractStatementInfo( $statementArray, $metadata );
 
-		$types = $metadata->getTypes();
+		$types = $metadata->getFinalWork()->getTypes();
 		$this->assertEquals( $expected, $types );
 	}
 

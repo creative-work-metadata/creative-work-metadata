@@ -59,7 +59,11 @@ class WikibaseImportTransformer implements ImportTransformer {
 		$this->extractLexicalInfo( $entity->getFingerprint(), $metadata );
 
 		$statements = $entity->getStatements()->getBestStatementPerProperty();
-		$this->extractStatementInfo( $statements, $metadata );
+
+		$statementsByProperty = new ByPropertyIdArray( $statements );
+		$statementsByProperty->buildIndex();
+
+		$this->extractStatementInfo( $statementsByProperty, $metadata );
 
 		return $metadata;
 	}
