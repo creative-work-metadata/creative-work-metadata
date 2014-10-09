@@ -31,13 +31,6 @@ class License extends UseRationale {
 	protected $uri;
 
 	/**
-	 * @param string $dataItem
-	 */
-	public function setDataItem( $dataItem ) {
-		$this->dataItem = $dataItem;
-	}
-
-	/**
 	 * @return string|null
 	 */
 	public function getDataItem() {
@@ -45,24 +38,10 @@ class License extends UseRationale {
 	}
 
 	/**
-	 * @param \DataValues\MultilingualTextValue|null $longName
+	 * @param string $dataItem
 	 */
-	public function setLongName( $longName ) {
-		$this->longName = $longName;
-	}
-
-	/**
-	 * @return \DataValues\MultilingualTextValue|null
-	 */
-	public function getLongName() {
-		return $this->longName;
-	}
-
-	/**
-	 * @param \DataValues\MultilingualTextValue $shortName
-	 */
-	public function setShortName( $shortName ) {
-		$this->shortName = $shortName;
+	public function setDataItem( $dataItem ) {
+		$this->dataItem = $dataItem;
 	}
 
 	/**
@@ -73,10 +52,24 @@ class License extends UseRationale {
 	}
 
 	/**
-	 * @param \DataValues\MonolingualTextValue|null $uri
+	 * @param \DataValues\MultilingualTextValue $shortName
 	 */
-	public function setUri( $uri ) {
-		$this->uri = $uri;
+	public function setShortName( $shortName ) {
+		$this->shortName = $shortName;
+	}
+
+	/**
+	 * @return \DataValues\MultilingualTextValue|null
+	 */
+	public function getLongName() {
+		return $this->longName;
+	}
+
+	/**
+	 * @param \DataValues\MultilingualTextValue|null $longName
+	 */
+	public function setLongName( $longName ) {
+		$this->longName = $longName;
 	}
 
 	/**
@@ -84,5 +77,12 @@ class License extends UseRationale {
 	 */
 	public function getUri() {
 		return $this->uri;
+	}
+
+	/**
+	 * @param \DataValues\MonolingualTextValue|null $uri
+	 */
+	public function setUri( $uri ) {
+		$this->uri = $uri;
 	}
 }

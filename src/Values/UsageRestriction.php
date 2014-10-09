@@ -36,13 +36,6 @@ class UsageRestriction {
 	protected $dataItem;
 
 	/**
-	 * @param string $type
-	 */
-	public function setType( $type ) {
-		$this->type = $type;
-	}
-
-	/**
 	 * @return string
 	 */
 	public function getType() {
@@ -50,31 +43,17 @@ class UsageRestriction {
 	}
 
 	/**
-	 * @param string|null $dataItem
+	 * @param string $type
 	 */
-	public function setDataItem( $dataItem ) {
-		$this->dataItem = $dataItem;
+	public function setType( $type ) {
+		$this->type = $type;
 	}
 
 	/**
-	 * @return string|null
+	 * @return \DataValues\MultilingualTextValue
 	 */
-	public function getDataItem() {
-		return $this->dataItem;
-	}
-
-	/**
-	 * @param \DataValues\MultilingualTextValue|null $description
-	 */
-	public function setDescription( $description ) {
-		$this->description = $description;
-	}
-
-	/**
-	 * @return \DataValues\MultilingualTextValue|null
-	 */
-	public function getDescription() {
-		return $this->description;
+	public function getName() {
+		return $this->name;
 	}
 
 	/**
@@ -85,9 +64,30 @@ class UsageRestriction {
 	}
 
 	/**
-	 * @return \DataValues\MultilingualTextValue
+	 * @return \DataValues\MultilingualTextValue|null
 	 */
-	public function getName() {
-		return $this->name;
+	public function getDescription() {
+		return $this->description;
+	}
+
+	/**
+	 * @param \DataValues\MultilingualTextValue|null $description
+	 */
+	public function setDescription( $description ) {
+		$this->description = $description;
+	}
+
+	/**
+	 * @return string|null
+	 */
+	public function getDataItem() {
+		return $this->dataItem;
+	}
+
+	/**
+	 * @param string|null $dataItem
+	 */
+	public function setDataItem( $dataItem ) {
+		$this->dataItem = $dataItem;
 	}
 }

@@ -23,17 +23,10 @@ class UsageRequirement {
 	protected $dataItem;
 
 	/**
-	 * @param string $dataItem
-	 */
-	public function setDataItem( $dataItem ) {
-		$this->dataItem = $dataItem;
-	}
-
-	/**
 	 * @return string
 	 */
-	public function getDataItem() {
-		return $this->dataItem;
+	public function getType() {
+		return $this->type;
 	}
 
 	/**
@@ -46,7 +39,14 @@ class UsageRequirement {
 	/**
 	 * @return string
 	 */
-	public function getType() {
-		return $this->type;
+	public function getDataItem() {
+		return $this->dataItem;
+	}
+
+	/**
+	 * @param string $dataItem
+	 */
+	public function setDataItem( $dataItem ) {
+		$this->dataItem = $dataItem;
 	}
 }

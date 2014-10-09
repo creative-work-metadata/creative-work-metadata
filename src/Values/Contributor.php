@@ -42,31 +42,10 @@ class Contributor {
 	protected $wikiAccount;
 
 	/**
-	 * @param string|null $dataItem
+	 * @return string[]
 	 */
-	public function setDataItem( $dataItem ) {
-		$this->dataItem = $dataItem;
-	}
-
-	/**
-	 * @return string|null
-	 */
-	public function getDataItem() {
-		return $this->dataItem;
-	}
-
-	/**
-	 * @param \DataValues\MonolingualTextValue $name
-	 */
-	public function setName( $name ) {
-		$this->name = $name;
-	}
-
-	/**
-	 * @return \DataValues\MonolingualTextValue
-	 */
-	public function getName() {
-		return $this->name;
+	public function getRoles() {
+		return $this->roles;
 	}
 
 	/**
@@ -77,17 +56,17 @@ class Contributor {
 	}
 
 	/**
-	 * @return string[]
+	 * @return \DataValues\MonolingualTextValue
 	 */
-	public function getRoles() {
-		return $this->roles;
+	public function getName() {
+		return $this->name;
 	}
 
 	/**
-	 * @param \DataValues\MonolingualTextValue|null $uri
+	 * @param \DataValues\MonolingualTextValue $name
 	 */
-	public function setUri( $uri ) {
-		$this->uri = $uri;
+	public function setName( $name ) {
+		$this->name = $name;
 	}
 
 	/**
@@ -98,10 +77,24 @@ class Contributor {
 	}
 
 	/**
-	 * @param \DataValues\MonolingualTextValue|null $wikiAccount
+	 * @param \DataValues\MonolingualTextValue|null $uri
 	 */
-	public function setWikiAccount( $wikiAccount ) {
-		$this->wikiAccount = $wikiAccount;
+	public function setUri( $uri ) {
+		$this->uri = $uri;
+	}
+
+	/**
+	 * @return string|null
+	 */
+	public function getDataItem() {
+		return $this->dataItem;
+	}
+
+	/**
+	 * @param string|null $dataItem
+	 */
+	public function setDataItem( $dataItem ) {
+		$this->dataItem = $dataItem;
 	}
 
 	/**
@@ -109,5 +102,12 @@ class Contributor {
 	 */
 	public function getWikiAccount() {
 		return $this->wikiAccount;
+	}
+
+	/**
+	 * @param \DataValues\MonolingualTextValue|null $wikiAccount
+	 */
+	public function setWikiAccount( $wikiAccount ) {
+		$this->wikiAccount = $wikiAccount;
 	}
 }

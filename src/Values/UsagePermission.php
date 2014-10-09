@@ -14,16 +14,16 @@ class UsagePermission {
 	protected $uri;
 
 	/**
-	 * @param \DataValues\MonolingualTextValue $uri
-	 */
-	public function setUri( $uri ) {
-		$this->uri = $uri;
-	}
-
-	/**
 	 * @return \DataValues\MonolingualTextValue
 	 */
 	public function getUri() {
 		return $this->uri;
+	}
+
+	/**
+	 * @param \DataValues\MonolingualTextValue $uri
+	 */
+	public function setUri( $uri ) {
+		$this->uri = $uri;
 	}
 }

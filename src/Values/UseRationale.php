@@ -21,17 +21,10 @@ class UseRationale {
 	protected $usagePermission;
 
 	/**
-	 * @param \StructuredData\Values\UsagePermission $usagePermission
+	 * @return \StructuredData\Values\UsageRequirement[]
 	 */
-	public function setUsagePermission( $usagePermission ) {
-		$this->usagePermission = $usagePermission;
-	}
-
-	/**
-	 * @return \StructuredData\Values\UsagePermission
-	 */
-	public function getUsagePermission() {
-		return $this->usagePermission;
+	public function getUsageRequirements() {
+		return $this->usageRequirements;
 	}
 
 	/**
@@ -42,9 +35,16 @@ class UseRationale {
 	}
 
 	/**
-	 * @return \StructuredData\Values\UsageRequirement[]
+	 * @return \StructuredData\Values\UsagePermission
 	 */
-	public function getUsageRequirements() {
-		return $this->usageRequirements;
+	public function getUsagePermission() {
+		return $this->usagePermission;
+	}
+
+	/**
+	 * @param \StructuredData\Values\UsagePermission $usagePermission
+	 */
+	public function setUsagePermission( $usagePermission ) {
+		$this->usagePermission = $usagePermission;
 	}
 }

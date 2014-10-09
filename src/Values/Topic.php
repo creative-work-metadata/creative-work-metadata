@@ -25,31 +25,10 @@ class Topic {
 	protected $dataItem;
 
 	/**
-	 * @param string $dataItem
-	 */
-	public function setDataItem( $dataItem ) {
-		$this->dataItem = $dataItem;
-	}
-
-	/**
-	 * @return string|null
-	 */
-	public function getDataItem() {
-		return $this->dataItem;
-	}
-
-	/**
-	 * @param \DataValues\MultilingualTextValue|null $description
-	 */
-	public function setDescription( $description ) {
-		$this->description = $description;
-	}
-
-	/**
 	 * @return \DataValues\MultilingualTextValue|null
 	 */
-	public function getDescription() {
-		return $this->description;
+	public function getName() {
+		return $this->name;
 	}
 
 	/**
@@ -62,7 +41,28 @@ class Topic {
 	/**
 	 * @return \DataValues\MultilingualTextValue|null
 	 */
-	public function getName() {
-		return $this->name;
+	public function getDescription() {
+		return $this->description;
+	}
+
+	/**
+	 * @param \DataValues\MultilingualTextValue|null $description
+	 */
+	public function setDescription( $description ) {
+		$this->description = $description;
+	}
+
+	/**
+	 * @return string|null
+	 */
+	public function getDataItem() {
+		return $this->dataItem;
+	}
+
+	/**
+	 * @param string $dataItem
+	 */
+	public function setDataItem( $dataItem ) {
+		$this->dataItem = $dataItem;
 	}
 }

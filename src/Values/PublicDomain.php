@@ -34,45 +34,10 @@ class PublicDomain extends UseRationale {
 	protected $description;
 
 	/**
-	 * @param string $dataItem
-	 */
-	public function setDataItem( $dataItem ) {
-		$this->dataItem = $dataItem;
-	}
-
-	/**
 	 * @return string
 	 */
-	public function getDataItem() {
-		return $this->dataItem;
-	}
-
-	/**
-	 * @param \DataValues\MultilingualTextValue|null $description
-	 */
-	public function setDescription( $description ) {
-		$this->description = $description;
-	}
-
-	/**
-	 * @return \DataValues\MultilingualTextValue|null
-	 */
-	public function getDescription() {
-		return $this->description;
-	}
-
-	/**
-	 * @param \DataValues\MultilingualTextValue $name
-	 */
-	public function setName( $name ) {
-		$this->name = $name;
-	}
-
-	/**
-	 * @return \DataValues\MultilingualTextValue
-	 */
-	public function getName() {
-		return $this->name;
+	public function getType() {
+		return $this->type;
 	}
 
 	/**
@@ -85,7 +50,42 @@ class PublicDomain extends UseRationale {
 	/**
 	 * @return string
 	 */
-	public function getType() {
-		return $this->type;
+	public function getDataItem() {
+		return $this->dataItem;
+	}
+
+	/**
+	 * @param string $dataItem
+	 */
+	public function setDataItem( $dataItem ) {
+		$this->dataItem = $dataItem;
+	}
+
+	/**
+	 * @return \DataValues\MultilingualTextValue
+	 */
+	public function getName() {
+		return $this->name;
+	}
+
+	/**
+	 * @param \DataValues\MultilingualTextValue $name
+	 */
+	public function setName( $name ) {
+		$this->name = $name;
+	}
+
+	/**
+	 * @return \DataValues\MultilingualTextValue|null
+	 */
+	public function getDescription() {
+		return $this->description;
+	}
+
+	/**
+	 * @param \DataValues\MultilingualTextValue|null $description
+	 */
+	public function setDescription( $description ) {
+		$this->description = $description;
 	}
 }

@@ -34,31 +34,10 @@ class CopyrightEvent {
 	protected $locations = array();
 
 	/**
-	 * @param \DataValues\TimeValue $date
+	 * @return int
 	 */
-	public function setDate( $date ) {
-		$this->date = $date;
-	}
-
-	/**
-	 * @return \DataValues\TimeValue
-	 */
-	public function getDate() {
-		return $this->date;
-	}
-
-	/**
-	 * @param \DataValues\Geo\Values\LatLongValue[] $locations
-	 */
-	public function setLocations( $locations ) {
-		$this->locations = $locations;
-	}
-
-	/**
-	 * @return \DataValues\Geo\Values\LatLongValue[]
-	 */
-	public function getLocations() {
-		return $this->locations;
+	public function getType() {
+		return $this->type;
 	}
 
 	/**
@@ -69,9 +48,30 @@ class CopyrightEvent {
 	}
 
 	/**
-	 * @return int
+	 * @return \DataValues\TimeValue
 	 */
-	public function getType() {
-		return $this->type;
+	public function getDate() {
+		return $this->date;
+	}
+
+	/**
+	 * @param \DataValues\TimeValue $date
+	 */
+	public function setDate( $date ) {
+		$this->date = $date;
+	}
+
+	/**
+	 * @return \DataValues\Geo\Values\LatLongValue[]
+	 */
+	public function getLocations() {
+		return $this->locations;
+	}
+
+	/**
+	 * @param \DataValues\Geo\Values\LatLongValue[] $locations
+	 */
+	public function setLocations( $locations ) {
+		$this->locations = $locations;
 	}
 }

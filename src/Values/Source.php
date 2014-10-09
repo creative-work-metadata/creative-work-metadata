@@ -32,17 +32,10 @@ class Source {
 	protected $dataItem;
 
 	/**
-	 * @param string $dataItem
-	 */
-	public function setDataItem( $dataItem ) {
-		$this->dataItem = $dataItem;
-	}
-
-	/**
 	 * @return string
 	 */
-	public function getDataItem() {
-		return $this->dataItem;
+	public function getName() {
+		return $this->name;
 	}
 
 	/**
@@ -55,8 +48,8 @@ class Source {
 	/**
 	 * @return string
 	 */
-	public function getName() {
-		return $this->name;
+	public function getUri() {
+		return $this->uri;
 	}
 
 	/**
@@ -69,8 +62,8 @@ class Source {
 	/**
 	 * @return string
 	 */
-	public function getUri() {
-		return $this->uri;
+	public function getContextUri() {
+		return $this->contextUri;
 	}
 
 	/**
@@ -83,7 +76,14 @@ class Source {
 	/**
 	 * @return string
 	 */
-	public function getContextUri() {
-		return $this->contextUri;
+	public function getDataItem() {
+		return $this->dataItem;
+	}
+
+	/**
+	 * @param string $dataItem
+	 */
+	public function setDataItem( $dataItem ) {
+		$this->dataItem = $dataItem;
 	}
 }

@@ -42,45 +42,10 @@ class Work {
 	protected $useRationales = array();
 
 	/**
-	 * @param \StructuredData\Values\Contributor[] $contributors
+	 * @return string
 	 */
-	public function setContributors( $contributors ) {
-		$this->contributors = $contributors;
-	}
-
-	/**
-	 * @return \StructuredData\Values\Contributor[]
-	 */
-	public function getContributors() {
-		return $this->contributors;
-	}
-
-	/**
-	 * @param \StructuredData\Values\CopyrightEvent[] $events
-	 */
-	public function setEvents( $events ) {
-		$this->events = $events;
-	}
-
-	/**
-	 * @return \StructuredData\Values\CopyrightEvent[]
-	 */
-	public function getEvents() {
-		return $this->events;
-	}
-
-	/**
-	 * @param \DataValues\MultilingualTextValue|null $title
-	 */
-	public function setTitle( $title ) {
-		$this->title = $title;
-	}
-
-	/**
-	 * @return \DataValues\MultilingualTextValue|null
-	 */
-	public function getTitle() {
-		return $this->title;
+	public function getType() {
+		return $this->type;
 	}
 
 	/**
@@ -91,17 +56,45 @@ class Work {
 	}
 
 	/**
-	 * @return string
+	 * @return \DataValues\MultilingualTextValue|null
 	 */
-	public function getType() {
-		return $this->type;
+	public function getTitle() {
+		return $this->title;
 	}
 
 	/**
-	 * @param \StructuredData\Values\UseRationale[] $useRationales
+	 * @param \DataValues\MultilingualTextValue|null $title
 	 */
-	public function setUseRationales( $useRationales ) {
-		$this->useRationales = $useRationales;
+	public function setTitle( $title ) {
+		$this->title = $title;
+	}
+
+	/**
+	 * @return \StructuredData\Values\CopyrightEvent[]
+	 */
+	public function getEvents() {
+		return $this->events;
+	}
+
+	/**
+	 * @param \StructuredData\Values\CopyrightEvent[] $events
+	 */
+	public function setEvents( $events ) {
+		$this->events = $events;
+	}
+
+	/**
+	 * @return \StructuredData\Values\Contributor[]
+	 */
+	public function getContributors() {
+		return $this->contributors;
+	}
+
+	/**
+	 * @param \StructuredData\Values\Contributor[] $contributors
+	 */
+	public function setContributors( $contributors ) {
+		$this->contributors = $contributors;
 	}
 
 	/**
@@ -109,5 +102,12 @@ class Work {
 	 */
 	public function getUseRationales() {
 		return $this->useRationales;
+	}
+
+	/**
+	 * @param \StructuredData\Values\UseRationale[] $useRationales
+	 */
+	public function setUseRationales( $useRationales ) {
+		$this->useRationales = $useRationales;
 	}
 }

@@ -51,6 +51,12 @@ class ObjectMetadata {
 	 */
 	protected $topics = array();
 
+	/**
+	 * @return \DataValues\MultilingualTextValue|null
+	 */
+	public function getTitle() {
+		return $this->title;
+	}
 
 	/**
 	 * @param \DataValues\MultilingualTextValue|null $title
@@ -62,8 +68,8 @@ class ObjectMetadata {
 	/**
 	 * @return \DataValues\MultilingualTextValue|null
 	 */
-	public function getTitle() {
-		return $this->title;
+	public function getDescription() {
+		return $this->description;
 	}
 
 	/**
@@ -74,24 +80,10 @@ class ObjectMetadata {
 	}
 
 	/**
-	 * @return \DataValues\MultilingualTextValue|null
+	 * @return \StructuredData\Values\Source[]
 	 */
-	public function getDescription() {
-		return $this->description;
-	}
-
-	/**
-	 * @param \DataValues\Geo\Values\LatLongValue $location
-	 */
-	public function setLocation( $location ) {
-		$this->location = $location;
-	}
-
-	/**
-	 * @return \DataValues\Geo\Values\LatLongValue
-	 */
-	public function getLocation() {
-		return $this->location;
+	public function getSources() {
+		return $this->sources;
 	}
 
 	/**
@@ -102,38 +94,10 @@ class ObjectMetadata {
 	}
 
 	/**
-	 * @return \StructuredData\Values\Source[]
+	 * @return \StructuredData\Values\Work[]
 	 */
-	public function getSources() {
-		return $this->sources;
-	}
-
-	/**
-	 * @param \StructuredData\Values\Topic[] $topics
-	 */
-	public function setTopics( $topics ) {
-		$this->topics = $topics;
-	}
-
-	/**
-	 * @return \StructuredData\Values\Topic[]
-	 */
-	public function getTopics() {
-		return $this->topics;
-	}
-
-	/**
-	 * @param \StructuredData\Values\UsageRestriction[] $usageRestrictions
-	 */
-	public function setUsageRestrictions( $usageRestrictions ) {
-		$this->usageRestrictions = $usageRestrictions;
-	}
-
-	/**
-	 * @return \StructuredData\Values\UsageRestriction[]
-	 */
-	public function getUsageRestrictions() {
-		return $this->usageRestrictions;
+	public function getWorks() {
+		return $this->works;
 	}
 
 	/**
@@ -144,10 +108,45 @@ class ObjectMetadata {
 	}
 
 	/**
-	 * @return \StructuredData\Values\Work[]
+	 * @return \StructuredData\Values\UsageRestriction[]
 	 */
-	public function getWorks() {
-		return $this->works;
+	public function getUsageRestrictions() {
+		return $this->usageRestrictions;
+	}
+
+	/**
+	 * @param \StructuredData\Values\UsageRestriction[] $usageRestrictions
+	 */
+	public function setUsageRestrictions( $usageRestrictions ) {
+		$this->usageRestrictions = $usageRestrictions;
+	}
+
+	/**
+	 * @return \DataValues\Geo\Values\LatLongValue
+	 */
+	public function getLocation() {
+		return $this->location;
+	}
+
+	/**
+	 * @param \DataValues\Geo\Values\LatLongValue $location
+	 */
+	public function setLocation( $location ) {
+		$this->location = $location;
+	}
+
+	/**
+	 * @return \StructuredData\Values\Topic[]
+	 */
+	public function getTopics() {
+		return $this->topics;
+	}
+
+	/**
+	 * @param \StructuredData\Values\Topic[] $topics
+	 */
+	public function setTopics( $topics ) {
+		$this->topics = $topics;
 	}
 
 	// -----------------------------------------------------------------------
