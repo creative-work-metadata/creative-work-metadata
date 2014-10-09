@@ -17,7 +17,7 @@ class Work {
 	 * Type(s) of the work, e.g. "painting".
 	 * @var string[]
 	 */
-	protected $types;
+	protected $types = array();
 
 	/**
 	 * Title of the work.
