@@ -8,19 +8,19 @@ namespace StructuredData\Values;
 class Topic {
 	/**
 	 * Name of the topic.
-	 * @var string
+	 * @var \DataValues\MultilingualTextValue
 	 */
 	protected $name;
 
 	/**
 	 * Description of the topic.
-	 * @var string
+	 * @var \DataValues\MultilingualTextValue|null
 	 */
 	protected $description;
 
 	/**
 	 * Wikidata ID of the topic.
-	 * @var string
+	 * @var string|null
 	 */
 	protected $dataItem;
 
@@ -32,35 +32,35 @@ class Topic {
 	}
 
 	/**
-	 * @return string
+	 * @return string|null
 	 */
 	public function getDataItem() {
 		return $this->dataItem;
 	}
 
 	/**
-	 * @param string $description
+	 * @param \DataValues\MultilingualTextValue|null $description
 	 */
 	public function setDescription( $description ) {
 		$this->description = $description;
 	}
 
 	/**
-	 * @return string
+	 * @return \DataValues\MultilingualTextValue|null
 	 */
 	public function getDescription() {
 		return $this->description;
 	}
 
 	/**
-	 * @param string $name
+	 * @param \DataValues\MultilingualTextValue $name
 	 */
 	public function setName( $name ) {
 		$this->name = $name;
 	}
 
 	/**
-	 * @return string
+	 * @return \DataValues\MultilingualTextValue|null
 	 */
 	public function getName() {
 		return $this->name;

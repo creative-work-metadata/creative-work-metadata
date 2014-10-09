@@ -7,6 +7,9 @@ namespace StructuredData\Values;
  * publication of the work.
  */
 class CopyrightEvent {
+	const TYPE_CREATION = 'Q123';
+	const TYPE_PUBLICATION = 'Q234';
+
 	/**
 	 * Event type, e.g. creation, first publication, registration with the copyright office.
 	 * @var int

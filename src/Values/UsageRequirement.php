@@ -7,9 +7,12 @@ namespace StructuredData\Values;
  * the author").
  */
 class UsageRequirement {
+	const TYPE_ATTRIBUTION = 'Q123';
+	const TYPE_SHAREALIKE = 'Q234';
+
 	/**
 	 * Requirement type
-	 * @var int
+	 * @var string
 	 */
 	protected $type;
 
@@ -34,14 +37,14 @@ class UsageRequirement {
 	}
 
 	/**
-	 * @param int $type
+	 * @param string $type
 	 */
 	public function setType( $type ) {
 		$this->type = $type;
 	}
 
 	/**
-	 * @return int
+	 * @return string
 	 */
 	public function getType() {
 		return $this->type;

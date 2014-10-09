@@ -6,9 +6,11 @@ namespace StructuredData\Values;
  * Use rationale for public domain works.
  */
 class PublicDomain extends UseRationale {
+	const TYPE_PD_USGOV_NASA = 'Q123';
+
 	/**
 	 * Type of public domain rationale (e.g. "PD-USGov-NASA").
-	 * @var int
+	 * @var string
 	 */
 	protected $type;
 
@@ -20,14 +22,14 @@ class PublicDomain extends UseRationale {
 
 	/**
 	 * Name of the rationale (e.g. "Work made by NASA")
-	 * @var string
+	 * @var \DataValues\MultilingualTextValue
 	 */
 	protected $name;
 
 	/**
 	 * Detailed description, e.g. to show in an upload interface
 	 * (is this needed?)
-	 * @var string
+	 * @var \DataValues\MultilingualTextValue|null
 	 */
 	protected $description;
 
@@ -46,42 +48,42 @@ class PublicDomain extends UseRationale {
 	}
 
 	/**
-	 * @param string $description
+	 * @param \DataValues\MultilingualTextValue|null $description
 	 */
 	public function setDescription( $description ) {
 		$this->description = $description;
 	}
 
 	/**
-	 * @return string
+	 * @return \DataValues\MultilingualTextValue|null
 	 */
 	public function getDescription() {
 		return $this->description;
 	}
 
 	/**
-	 * @param string $name
+	 * @param \DataValues\MultilingualTextValue $name
 	 */
 	public function setName( $name ) {
 		$this->name = $name;
 	}
 
 	/**
-	 * @return string
+	 * @return \DataValues\MultilingualTextValue
 	 */
 	public function getName() {
 		return $this->name;
 	}
 
 	/**
-	 * @param int $type
+	 * @param string $type
 	 */
 	public function setType( $type ) {
 		$this->type = $type;
 	}
 
 	/**
-	 * @return int
+	 * @return string
 	 */
 	public function getType() {
 		return $this->type;

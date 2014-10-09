@@ -14,19 +14,19 @@ class License extends UseRationale {
 
 	/**
 	 * Short name of the license (e.g. "CC-BY-SA-3.0-nl")
-	 * @var string
+	 * @var \DataValues\MultilingualTextValue
 	 */
 	protected $shortName;
 
 	/**
 	 * Long name of the license (e.g. "Creative Commons Attribution-ShareAlike 3.0 Netherlands")
-	 * @var string
+	 * @var \DataValues\MultilingualTextValue|null
 	 */
 	protected $longName;
 
 	/**
 	 * URI of the license deed
-	 * @var string
+	 * @var \DataValues\MonolingualTextValue|null
 	 */
 	protected $uri;
 
@@ -38,49 +38,49 @@ class License extends UseRationale {
 	}
 
 	/**
-	 * @return string
+	 * @return string|null
 	 */
 	public function getDataItem() {
 		return $this->dataItem;
 	}
 
 	/**
-	 * @param string $longName
+	 * @param \DataValues\MultilingualTextValue|null $longName
 	 */
 	public function setLongName( $longName ) {
 		$this->longName = $longName;
 	}
 
 	/**
-	 * @return string
+	 * @return \DataValues\MultilingualTextValue|null
 	 */
 	public function getLongName() {
 		return $this->longName;
 	}
 
 	/**
-	 * @param string $shortName
+	 * @param \DataValues\MultilingualTextValue $shortName
 	 */
 	public function setShortName( $shortName ) {
 		$this->shortName = $shortName;
 	}
 
 	/**
-	 * @return string
+	 * @return \DataValues\MultilingualTextValue
 	 */
 	public function getShortName() {
 		return $this->shortName;
 	}
 
 	/**
-	 * @param string $uri
+	 * @param \DataValues\MonolingualTextValue|null $uri
 	 */
 	public function setUri( $uri ) {
 		$this->uri = $uri;
 	}
 
 	/**
-	 * @return string
+	 * @return \DataValues\MonolingualTextValue|null
 	 */
 	public function getUri() {
 		return $this->uri;

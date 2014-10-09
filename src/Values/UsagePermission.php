@@ -9,19 +9,19 @@ namespace StructuredData\Values;
 class UsagePermission {
 	/**
 	 * An URI pointing to the document in which the right holder gives permission.
-	 * @var string
+	 * @var \DataValues\MonolingualTextValue
 	 */
 	protected $uri;
 
 	/**
-	 * @param string $uri
+	 * @param \DataValues\MonolingualTextValue $uri
 	 */
 	public function setUri( $uri ) {
 		$this->uri = $uri;
 	}
 
 	/**
-	 * @return string
+	 * @return \DataValues\MonolingualTextValue
 	 */
 	public function getUri() {
 		return $this->uri;

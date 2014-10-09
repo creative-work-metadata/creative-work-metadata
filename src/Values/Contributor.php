@@ -7,21 +7,25 @@ namespace StructuredData\Values;
  * that's important enough to be credited in some form.
  */
 class Contributor {
+	const ROLE_AUTHOR = 'Q123';
+	const ROLE_UPLOADER = 'Q456';
+
 	/**
 	 * Contributor role, such as author, photographer, uploader...
-	 * @var int
+	 * See the ROLE_* constants for "standard" roles
+	 * @var string[]
 	 */
-	protected $role;
+	protected $roles;
 
 	/**
 	 * Name of the contributor (in the form in which it is supposed to appear in the attribution).
-	 * @var string
+	 * @var \DataValues\MonolingualTextValue
 	 */
 	protected $name;
 
 	/**
 	 * URI with more information about the contributor, e.g. home page, user page...
-	 * @var string|null
+	 * @var \DataValues\MonolingualTextValue|null
 	 */
 	protected $uri;
 
@@ -33,75 +37,75 @@ class Contributor {
 
 	/**
 	 * Wiki username of the contributor
-	 * @var string|null
+	 * @var \DataValues\MonolingualTextValue|null
 	 */
 	protected $wikiAccount;
 
 	/**
-	 * @param string $dataItem
+	 * @param string|null $dataItem
 	 */
 	public function setDataItem( $dataItem ) {
 		$this->dataItem = $dataItem;
 	}
 
 	/**
-	 * @return string
+	 * @return string|null
 	 */
 	public function getDataItem() {
 		return $this->dataItem;
 	}
 
 	/**
-	 * @param string $name
+	 * @param \DataValues\MonolingualTextValue $name
 	 */
 	public function setName( $name ) {
 		$this->name = $name;
 	}
 
 	/**
-	 * @return string
+	 * @return \DataValues\MonolingualTextValue
 	 */
 	public function getName() {
 		return $this->name;
 	}
 
 	/**
-	 * @param int $role
+	 * @param string[] $roles
 	 */
-	public function setRole( $role ) {
-		$this->role = $role;
+	public function setRoles( $roles ) {
+		$this->roles = $roles;
 	}
 
 	/**
-	 * @return int
+	 * @return string[]
 	 */
-	public function getRole() {
-		return $this->role;
+	public function getRoles() {
+		return $this->roles;
 	}
 
 	/**
-	 * @param string $uri
+	 * @param \DataValues\MonolingualTextValue|null $uri
 	 */
 	public function setUri( $uri ) {
 		$this->uri = $uri;
 	}
 
 	/**
-	 * @return string
+	 * @return \DataValues\MonolingualTextValue|null
 	 */
 	public function getUri() {
 		return $this->uri;
 	}
 
 	/**
-	 * @param string $wikiAccount
+	 * @param \DataValues\MonolingualTextValue|null $wikiAccount
 	 */
 	public function setWikiAccount( $wikiAccount ) {
 		$this->wikiAccount = $wikiAccount;
 	}
 
 	/**
-	 * @return string
+	 * @return \DataValues\MonolingualTextValue|null
 	 */
 	public function getWikiAccount() {
 		return $this->wikiAccount;

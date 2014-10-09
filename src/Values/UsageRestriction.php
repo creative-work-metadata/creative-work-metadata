@@ -7,22 +7,25 @@ namespace StructuredData\Values;
  * rights).
  */
 class UsageRestriction {
+	const TYPE_FREEDOM_OF_PANORAMA = 'Q123';
+	const TYPE_PERSONALITY_RIGHTS = 'Q234';
+
 	/**
 	 * Type of the restriction.
-	 * @var int
+	 * @var string
 	 */
 	protected $type;
 
 	/**
 	 * A name for the restriction (e.g. "personality rights").
-	 * @var string
+	 * @var \DataValues\MultilingualTextValue
 	 */
 	protected $name;
 
 	/**
 	 * An explanation of the restriction (e.g. "This image depcits identifiable persons; their
 	 * permission might be required for reuse.")
-	 * @var string
+	 * @var \DataValues\MultilingualTextValue|null
 	 */
 	protected $description;
 
@@ -33,56 +36,56 @@ class UsageRestriction {
 	protected $dataItem;
 
 	/**
-	 * @param int $type
+	 * @param string $type
 	 */
 	public function setType( $type ) {
 		$this->type = $type;
 	}
 
 	/**
-	 * @return int
+	 * @return string
 	 */
 	public function getType() {
 		return $this->type;
 	}
 
 	/**
-	 * @param string $dataItem
+	 * @param string|null $dataItem
 	 */
 	public function setDataItem( $dataItem ) {
 		$this->dataItem = $dataItem;
 	}
 
 	/**
-	 * @return string
+	 * @return string|null
 	 */
 	public function getDataItem() {
 		return $this->dataItem;
 	}
 
 	/**
-	 * @param string $description
+	 * @param \DataValues\MultilingualTextValue|null $description
 	 */
 	public function setDescription( $description ) {
 		$this->description = $description;
 	}
 
 	/**
-	 * @return string
+	 * @return \DataValues\MultilingualTextValue|null
 	 */
 	public function getDescription() {
 		return $this->description;
 	}
 
 	/**
-	 * @param string $name
+	 * @param \DataValues\MultilingualTextValue $name
 	 */
 	public function setName( $name ) {
 		$this->name = $name;
 	}
 
 	/**
-	 * @return string
+	 * @return \DataValues\MultilingualTextValue
 	 */
 	public function getName() {
 		return $this->name;

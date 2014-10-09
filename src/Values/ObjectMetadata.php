@@ -8,14 +8,14 @@ namespace StructuredData\Values;
 class ObjectMetadata {
 	/**
 	 * Name of the work.
-	 * @var string
+	 * @var \DataValues\MultilingualTextValue|null
 	 */
 	protected $title;
 
 	/**
 	 * Description of the object.
 	 * Can be long, can contain HTML (or wikitext), including block-level formatting.
-	 * @var string
+	 * @var \DataValues\MultilingualTextValue|null
 	 */
 	protected $description;
 
@@ -53,28 +53,28 @@ class ObjectMetadata {
 
 
 	/**
-	 * @param string $title
+	 * @param \DataValues\MultilingualTextValue|null $title
 	 */
 	public function setTitle( $title ) {
 		$this->title = $title;
 	}
 
 	/**
-	 * @return string
+	 * @return \DataValues\MultilingualTextValue|null
 	 */
 	public function getTitle() {
 		return $this->title;
 	}
 
 	/**
-	 * @param string $description
+	 * @param \DataValues\MultilingualTextValue|null $description
 	 */
 	public function setDescription( $description ) {
 		$this->description = $description;
 	}
 
 	/**
-	 * @return string
+	 * @return \DataValues\MultilingualTextValue|null
 	 */
 	public function getDescription() {
 		return $this->description;
