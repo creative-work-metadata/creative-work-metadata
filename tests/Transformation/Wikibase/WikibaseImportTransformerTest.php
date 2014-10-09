@@ -79,7 +79,9 @@ class WikibaseImportTransformerTest extends \PHPUnit_Framework_TestCase {
 
 	public function testExtractStatementInfo_types() {
 		$entity = Item::newEmpty();
-		$entity->getStatements()->addStatement( $this->makeWorkTypeStatement( 'Q10' ) );
+		$statements = $entity->getStatements();
+		$statements->addStatement( $this->makeWorkTypeStatement( 'Q10' ) );
+		$entity->setStatements( $statements );
 
 		$transformer = $this->getWikibaseImportTransformer();
 		$metadata = $transformer->transformToObjectMetadata( $entity );

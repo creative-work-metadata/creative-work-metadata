@@ -37,12 +37,12 @@ class WikibaseServices {
 				'number' => 'DataValues\NumberValue',
 				'string' => 'DataValues\StringValue',
 				'unknown' => 'DataValues\UnknownValue',
-				'globecoordinate' => 'DataValues\Geo\Values\GlobeCoordinateValue',
+/*				'globecoordinate' => 'DataValues\Geo\Values\GlobeCoordinateValue',
 				'monolingualtext' => 'DataValues\MonolingualTextValue',
 				'multilingualtext' => 'DataValues\MultilingualTextValue',
 				'quantity' => 'DataValues\QuantityValue',
 				'time' => 'DataValues\TimeValue',
-				'wikibase-entityid' => 'Wikibase\DataModel\Entity\EntityIdValue',
+*/				'wikibase-entityid' => 'Wikibase\DataModel\Entity\EntityIdValue',
 			) ),
 			$this->getEntityIdParser()
 		);

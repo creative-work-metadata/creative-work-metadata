@@ -62,7 +62,7 @@ class WikibaseImportTransformer implements ImportTransformer {
 
 		$statements = $entity->getStatements()->getBestStatementPerProperty();
 
-		$statementsByProperty = new ByPropertyIdArray( $statements );
+		$statementsByProperty = new ByPropertyIdArray( $statements->toArray() );
 		$statementsByProperty->buildIndex();
 
 		$this->extractStatementInfo( $statementsByProperty, $metadata );
