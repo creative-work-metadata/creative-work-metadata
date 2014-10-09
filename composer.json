@@ -6,7 +6,8 @@
 		"php": ">=5.3.0",
 		"data-values/time": "*",
 		"data-values/geo": "*",
-		"wikibase/data-model": "*"
+		"wikibase/data-model": "*",
+        "wikibase/data-model-serialization": "*"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "*"
