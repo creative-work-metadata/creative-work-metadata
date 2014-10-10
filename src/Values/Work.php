@@ -13,8 +13,11 @@ use DataValues\MultilingualTextValue;
  * able to acknowledge them (such as an image restoration).
  */
 class Work {
+	const TYPE_PAINTING = 'Q123';
+	const TYPE_GRAPHIC = 'Q234';
+
 	/**
-	 * Type(s) of the work, e.g. "painting".
+	 * Type(s) of the work, e.g. "painting" or a Q-number.
 	 * @var string[]
 	 */
 	protected $types = array();
@@ -24,6 +27,12 @@ class Work {
 	 * @var MultilingualTextValue|null
 	 */
 	protected $title;
+
+	/**
+	 * Wikidata id of the work
+	 * @var string|null
+	 */
+	protected $dataItem;
 
 	/**
 	 * Events that are relevant for determining the copyright status of the work.
@@ -76,6 +85,20 @@ class Work {
 	 */
 	public function setTitle( $title ) {
 		$this->title = $title;
+	}
+
+	/**
+	 * @return string|null
+	 */
+	public function getDataItem() {
+		return $this->dataItem;
+	}
+
+	/**
+	 * @param string $dataId|null
+	 */
+	public function setDataItem( $dataId ) {
+		$this->dataItem = $dataId;
 	}
 
 	/**
