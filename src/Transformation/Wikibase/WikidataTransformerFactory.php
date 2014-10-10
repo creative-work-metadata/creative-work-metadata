@@ -4,7 +4,12 @@ namespace StructuredData\Transformation\Wikibase;
 
 use RuntimeException;
 use StructuredData\Transformation\TransformerFactory;
+use StructuredData\Transformation\Wikibase\Encoder\ObjectMetadataEncoder;
+use StructuredData\Transformation\Wikibase\Encoder\SourceEncoder;
+use StructuredData\Transformation\Wikibase\Encoder\TopicEncoder;
+use StructuredData\Transformation\Wikibase\Encoder\WorkEncoder;
 use Wikibase\DataModel\Entity\PropertyId;
+use StructuredData\Transformation\Wikibase\WikidataConstants;
 
 /**
  * Factory for transformers using the Wikibase model together with
@@ -34,7 +39,13 @@ class WikidataTransformerFactory implements TransformerFactory {
 	 * @see TransformerFactory::getExportTransformation(getExportTransformer
 	 */
 	public function getExportTransformer() {
-		throw new RuntimeException( 'not yet implemented' );
+		$rootEncoder = new ObjectMetadataEncoder( array(
+			new WorkEncoder(),
+			new SourceEncoder(),
+			new TopicEncoder(),
+		) );
+		$transformer = new WikibaseExportTransformer( $rootEncoder );
+		return $transformer;
 	}
 
 	/**
@@ -42,10 +53,10 @@ class WikidataTransformerFactory implements TransformerFactory {
 	 */
 	private function getWorkTypeExtractor() {
 		return new WorkTypeExtractor(
-			new PropertyId( 'P290' ),
+			new PropertyId( WikidataConstants::PROP_WORKTYPE ),
 			array(
-				'Q805' => 'photograph',
-				'Q815' => 'graphic',
+				WikidataConstants::ITEM_PHOTOGRAPH => 'photograph',
+				WikidataConstants::ITEM_GRAPHIC => 'graphic',
 			)
 		);
 	}

@@ -44,7 +44,7 @@ class ObjectMetadata {
 
 	/**
 	 * Location of the object.
-	 * @var LatLongValue
+	 * @var LatLongValue|null
 	 */
 	protected $location;
 

@@ -2,8 +2,10 @@
 
 namespace StructuredData\Transformation\Wikibase;
 use DataValues\Deserializers\DataValueDeserializer;
+use DataValues\Serializers\DataValueSerializer;
 use Wikibase\DataModel\DeserializerFactory;
 use Wikibase\DataModel\Entity\BasicEntityIdParser;
+use Wikibase\DataModel\SerializerFactory;
 
 /**
  * WikibaseServices
@@ -37,16 +39,15 @@ class WikibaseServices {
 				'number' => 'DataValues\NumberValue',
 				'string' => 'DataValues\StringValue',
 				'unknown' => 'DataValues\UnknownValue',
-/*				'globecoordinate' => 'DataValues\Geo\Values\GlobeCoordinateValue',
-				'monolingualtext' => 'DataValues\MonolingualTextValue',
-				'multilingualtext' => 'DataValues\MultilingualTextValue',
-				'quantity' => 'DataValues\QuantityValue',
-				'time' => 'DataValues\TimeValue',
-*/				'wikibase-entityid' => 'Wikibase\DataModel\Entity\EntityIdValue',
+				/*				'globecoordinate' => 'DataValues\Geo\Values\GlobeCoordinateValue',
+								'monolingualtext' => 'DataValues\MonolingualTextValue',
+								'multilingualtext' => 'DataValues\MultilingualTextValue',
+								'quantity' => 'DataValues\QuantityValue',
+								'time' => 'DataValues\TimeValue',
+				*/				'wikibase-entityid' => 'Wikibase\DataModel\Entity\EntityIdValue',
 			) ),
 			$this->getEntityIdParser()
 		);
 	}
-
 }
  
