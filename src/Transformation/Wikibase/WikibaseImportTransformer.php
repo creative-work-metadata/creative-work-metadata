@@ -16,7 +16,7 @@ use Wikibase\DataModel\Term\TermList;
 use Wikibase\Item;
 
 /**
- * WikibaseImportTransformer
+ * Transformer for importing from the Wikibase data model.
  *
  * @license GPL 2+
  * @author Daniel Kinzler
