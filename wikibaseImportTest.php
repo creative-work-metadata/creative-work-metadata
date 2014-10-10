@@ -21,7 +21,7 @@ if ( !$json ) {
 $data = json_decode( $json, JSON_OBJECT_AS_ARRAY );
 
 if ( !$data ) {
-	die( "ERROR: failed to decode JSON from $url\n" );
+	die( "ERROR: failed to decode JSON from $url\n" . json_last_error() . "\n" );
 }
 
 $wikibaseServices = new WikibaseServices();
