@@ -16,5 +16,10 @@
 		"psr-4": {
 			"StructuredData\\": "src"
 		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"StructuredData\\Tests\\": "tests"
+		}
 	}
 }

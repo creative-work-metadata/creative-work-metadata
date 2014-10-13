@@ -2,14 +2,16 @@
 
 namespace StructuredData\Transformation\Wikibase\Encoder;
 
-use StructuredData\Transformation\Wikibase\WikidataConstants;
 use StructuredData\Values\ObjectMetadata;
 use StructuredData\Values\Work;
 use Wikibase\DataModel\Entity\EntityIdValue;
 use Wikibase\DataModel\Entity\Item;
 use Wikibase\DataModel\Entity\ItemId;
+use Wikibase\DataModel\Snak\PropertyValueSnak;
 
 class WorkEncoder extends Encoder {
+	const PROP_TYPE_OF_WORK = 'type of work';
+
 	/**
 	 * Turns $object into a list of Wikibase statements and adds them to $statementList.
 	 * @param Work $object
@@ -25,7 +27,7 @@ class WorkEncoder extends Encoder {
 		$types = $object->getTypes();
 		foreach ( $types as $type ) {
 			// FIXME map human-readable type names to Q-numbers
-			$snak = $this->createSnak( WikidataConstants::PROP_TYPE_OF_WORK,
+			$snak = new PropertyValueSnak( $this->propertyMap[self::PROP_TYPE_OF_WORK],
 				new EntityIdValue( new ItemId( $type ) ) );
 			$this->addStatement( $item, $snak );
 		}

@@ -6,9 +6,10 @@ use DataValues\Geo\Values\LatLongValue;
 use DataValues\MultilingualTextValue;
 use StructuredData\Values\ObjectMetadata;
 use Wikibase\DataModel\Entity\Item;
-use StructuredData\Transformation\Wikibase\WikidataConstants;
+use Wikibase\DataModel\Snak\PropertyValueSnak;
 
 class ObjectMetadataEncoder extends Encoder {
+	const PROP_LOCATION = 'location';
 
 	/**
 	 * Turns $object into a list of Wikibase statements and adds them to $statementList.
@@ -54,7 +55,7 @@ class ObjectMetadataEncoder extends Encoder {
 	 */
 	protected function encodeDescription( MultilingualTextValue $description, Item $item ) {
 		$terms = $this->convertMultilingualTextValueToTermList( $description );
-		$item->getFingerprint()->setLabels($terms );
+		$item->getFingerprint()->setDescriptions($terms );
 	}
 
 	/**
@@ -62,7 +63,7 @@ class ObjectMetadataEncoder extends Encoder {
 	 * @param Item $item
 	 */
 	protected function encodeLocation( LatLongValue $location, Item $item ) {
-		$snak = $this->createSnak( WikidataConstants::PROP_LOCATION, $location );
+		$snak = new PropertyValueSnak( $this->propertyMap[self::PROP_LOCATION], $location );
 		$this->addStatement( $item, $snak );
 	}
 
