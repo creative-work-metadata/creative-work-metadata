@@ -24,6 +24,16 @@ abstract class Encoder {
 	protected $childEncoders = array();
 
 	/**
+	 * An associative array mapping internal property names to Wikibase ids.
+	 * @var PropertyId[]
+	 */
+	protected $propertyMap;
+
+	public function __construct( array $propertyMap = array() ) {
+		$this->propertyMap = $propertyMap;
+	}
+
+	/**
 	 * Turns $object into a list of Wikibase statements and adds them to $statementList.
 	 * @param mixed $object one of the StructuredData\Values\* objects
 	 * @param Item $item
@@ -39,9 +49,11 @@ abstract class Encoder {
 	abstract public function extractFromParentObject( $object );
 
 	/**
+	 * Sets up the encoding tree structure.
+	 * FIXME this should be extracted into the object which manages dependency injection
 	 * @param Encoder[] $encoders
 	 */
-	public function __construct( array $encoders = array() ) {
+	public function setEncoders( array $encoders ) {
 		$this->childEncoders = $encoders;
 	}
 

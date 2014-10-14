@@ -39,11 +39,13 @@ class WikidataTransformerFactory implements TransformerFactory {
 	 * @see TransformerFactory::getExportTransformation(getExportTransformer
 	 */
 	public function getExportTransformer() {
-		$rootEncoder = new ObjectMetadataEncoder( array(
-			new WorkEncoder(),
-			new SourceEncoder(),
-			new TopicEncoder(),
-		) );
+		$rootEncoder = $this->getObjectMetadataEncoder();
+		$workEncoder = $this->getWorkEncoder();
+		$sourceEncoder = $this->getSourceEncoder();
+		$topicEncoder = $this->getTopicEncoder();
+
+		$rootEncoder->setEncoders( array( $workEncoder, $sourceEncoder, $topicEncoder ) );
+
 		$transformer = new WikibaseExportTransformer( $rootEncoder );
 		return $transformer;
 	}
@@ -60,5 +62,40 @@ class WikidataTransformerFactory implements TransformerFactory {
 			)
 		);
 	}
+
+	/**
+	 * @return ObjectMetadataEncoder
+	 */
+	private function getObjectMetadataEncoder() {
+		return new ObjectMetadataEncoder( array(
+			ObjectMetadataEncoder::PROP_LOCATION => new PropertyId( WikidataConstants::PROP_LOCATION ),
+		) );
+	}
+
+	/**
+	 * @return WorkEncoder
+	 */
+	private function getWorkEncoder() {
+		return new WorkEncoder( array(
+			WorkEncoder::PROP_TYPE_OF_WORK => new PropertyId( WikidataConstants::PROP_TYPE_OF_WORK ),
+		) );
+	}
+
+	/**
+	 * @return SourceEncoder
+	 */
+	private function getSourceEncoder() {
+		return new SourceEncoder( array(
+			SourceEncoder::PROP_SOURCE => new PropertyId( WikidataConstants::PROP_SOURCE ),
+		) );
+	}
+
+	/**
+	 * @return TopicEncoder
+	 */
+	private function getTopicEncoder() {
+		return new TopicEncoder( array(
+			TopicEncoder::PROP_TOPIC => new PropertyId( WikidataConstants::PROP_TOPIC ),
+		) );
+	}
 }
- 
