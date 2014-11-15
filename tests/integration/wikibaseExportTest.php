@@ -11,7 +11,7 @@ use StructuredData\Values\Topic;
 use StructuredData\Values\Work;
 use Wikibase\DataModel\SerializerFactory;
 
-require_once( __DIR__ . '/vendor/autoload.php' );
+require_once( __DIR__ . '/../../vendor/autoload.php' );
 
 $metadata = new ObjectMetadata();
 

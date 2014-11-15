@@ -3,7 +3,7 @@
 use StructuredData\Transformation\Wikibase\WikibaseServices;
 use StructuredData\Transformation\Wikibase\WikidataTransformerFactory;
 
-require_once( __DIR__ . '/vendor/autoload.php' );
+require_once( __DIR__ . '/../../vendor/autoload.php' );
 
 if ( !isset( $argv[1] ) ) {
 	die( "USGAE: wikibaseImportTest <itemid>\n" );

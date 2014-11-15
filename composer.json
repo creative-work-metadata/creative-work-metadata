@@ -4,8 +4,10 @@
 	"description": "Early prototype for the Wikimedia Commons Structured Data project",
 	"require": {
 		"php": ">=5.3.0",
+		"data-values/common": "*",
 		"data-values/time": "*",
 		"data-values/geo": "*",
+		"data-values/serialization": "*",
 		"wikibase/data-model": "*",
 		"wikibase/data-model-serialization": "*"
 	},
