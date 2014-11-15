@@ -23,7 +23,10 @@ class CommonsMetadataTransformerFactory implements TransformerFactory {
 		$extractors = array(
 			new TitleExtractor(),
 			new DescriptionExtractor(),
+			new LocationExtractor(),
+			new SourceExtractor(),
 			$this->getLicenseExtractor(),
+			$this->getAuthorExtractor(),
 		);
 
 		return new CommonsMetadataImportTransformer( $extractors );
@@ -45,6 +48,10 @@ class CommonsMetadataTransformerFactory implements TransformerFactory {
 				'Public domain' => new PublicDomain(),
 			)
 		);
+	}
+
+	private function getAuthorExtractor() {
+		return new AuthorExtractor( 'Q482980' );
 	}
 }
  
