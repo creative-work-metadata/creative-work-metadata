@@ -2,6 +2,7 @@
 
 namespace StructuredData\Transformation\CommonsMetadata;
 
+use DataValues\Geo\Parsers\GlobeCoordinateParser;
 use RuntimeException;
 use StructuredData\Transformation\TransformerFactory;
 use StructuredData\Values\PublicDomain;
@@ -23,7 +24,7 @@ class CommonsMetadataTransformerFactory implements TransformerFactory {
 		$extractors = array(
 			new TitleExtractor(),
 			new DescriptionExtractor(),
-			new LocationExtractor(),
+			new LocationExtractor( new GlobeCoordinateParser() ),
 			new SourceExtractor(),
 			$this->getLicenseExtractor(),
 			$this->getAuthorExtractor(),

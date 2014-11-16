@@ -2,10 +2,20 @@
 
 namespace StructuredData\Transformation\CommonsMetadata;
 
-use DataValues\Geo\Values\LatLongValue;
+use DataValues\Geo\Parsers\GlobeCoordinateParser;
 use StructuredData\Values\ObjectMetadata;
 
 class LocationExtractor implements CommonsMetadataExtractor {
+
+	/**
+	 * @var GlobeCoordinateParser
+	 */
+	protected $coordinateParser;
+
+	public function __construct( $coordinateParser ) {
+		$this->coordinateParser = $coordinateParser;
+	}
+
 	/**
 	 * @param CommonsMetadata $source
 	 * @param ObjectMetadata $target
@@ -15,7 +25,8 @@ class LocationExtractor implements CommonsMetadataExtractor {
 		$longitude = $source->getField( 'GPSLongitude' );
 
 		if ( isset( $latitude ) && isset ( $longitude ) ) {
-			$target->setLocation( new LatLongValue( (float)$latitude, (float)$longitude ) );
+			$coordinateValue = $this->coordinateParser->parse( "$latitude,$longitude" );
+			$target->setLocation( $coordinateValue );
 		}
 	}
 
