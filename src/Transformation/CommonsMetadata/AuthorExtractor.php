@@ -7,6 +7,7 @@ use StructuredData\Values\Contributor;
 use StructuredData\Values\ObjectMetadata;
 
 class AuthorExtractor implements CommonsMetadataExtractor {
+
 	/**
 	 * Q-number identifying the 'author' role
 	 * @var string
@@ -31,5 +32,5 @@ class AuthorExtractor implements CommonsMetadataExtractor {
 			$target->getFinalWork()->addContributor( $contributor );
 		}
 	}
+
 }
- 

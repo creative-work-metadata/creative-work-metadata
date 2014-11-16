@@ -12,6 +12,7 @@ use StructuredData\Values\Work;
  * @covers LocationExtractor
  */
 class LocationExtractorTest extends \PHPUnit_Framework_TestCase {
+
 	public function provideExtractMetadata() {
 		return array(
 			'empty' => array(
@@ -53,4 +54,5 @@ class LocationExtractorTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertEquals( $expectedResult, $location );
 	}
+
 }

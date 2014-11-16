@@ -10,6 +10,7 @@ use StructuredData\Values\Work;
  * @covers SourceExtractor
  */
 class SourceExtractorTest extends \PHPUnit_Framework_TestCase {
+
 	public function testExtractMetadata() {
 		$commonsMetadata = new CommonsMetadata( array( 'Credit' => array( 'value' => 'National Archives' ) ) );
 		$extractor = new SourceExtractor();
@@ -39,5 +40,5 @@ class SourceExtractorTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertEmpty( $sources );
 	}
+
 }
- 

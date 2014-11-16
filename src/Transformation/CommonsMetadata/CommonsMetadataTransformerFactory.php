@@ -54,5 +54,5 @@ class CommonsMetadataTransformerFactory implements TransformerFactory {
 	private function getAuthorExtractor() {
 		return new AuthorExtractor( 'Q482980' );
 	}
+
 }
- 

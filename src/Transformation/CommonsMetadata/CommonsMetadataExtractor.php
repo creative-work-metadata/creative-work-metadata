@@ -18,4 +18,3 @@ interface CommonsMetadataExtractor {
 	 */
 	public function extractMetadata( CommonsMetadata $source, ObjectMetadata $target );
 }
- 

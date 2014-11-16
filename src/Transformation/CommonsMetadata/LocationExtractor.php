@@ -31,4 +31,3 @@ class LocationExtractor implements CommonsMetadataExtractor {
 	}
 
 }
- 

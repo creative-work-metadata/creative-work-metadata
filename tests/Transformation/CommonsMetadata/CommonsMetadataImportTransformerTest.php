@@ -41,4 +41,3 @@ class CommonsMetadataImportTransformerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 }
- 

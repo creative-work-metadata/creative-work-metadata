@@ -65,4 +65,3 @@ class CommonsMetadataImportTransformer implements ImportTransformer {
 	}
 
 }
- 

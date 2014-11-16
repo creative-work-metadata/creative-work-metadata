@@ -30,4 +30,3 @@ class TitleExtractor implements CommonsMetadataExtractor {
 	}
 
 }
- 

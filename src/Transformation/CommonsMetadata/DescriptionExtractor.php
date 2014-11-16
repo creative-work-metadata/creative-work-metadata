@@ -30,4 +30,3 @@ class DescriptionExtractor implements CommonsMetadataExtractor {
 	}
 
 }
- 

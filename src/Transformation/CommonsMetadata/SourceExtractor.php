@@ -24,5 +24,5 @@ class SourceExtractor implements CommonsMetadataExtractor {
 			$target->addSource( $sourceField );
 		}
 	}
+
 }
- 

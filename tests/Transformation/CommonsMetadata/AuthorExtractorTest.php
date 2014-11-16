@@ -11,6 +11,7 @@ use StructuredData\Values\Work;
  * @covers AuthorExtractor
  */
 class AuthorExtractorTest extends \PHPUnit_Framework_TestCase {
+
 	public function testExtractMetadata() {
 		$commonsMetadata = new CommonsMetadata( array( 'Artist' => array( 'value' => 'E. Elmer' ) ) );
 		$extractor = new AuthorExtractor( 'Q123' );
@@ -41,4 +42,5 @@ class AuthorExtractorTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertEmpty( $contributors );
 	}
+
 }
