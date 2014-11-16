@@ -24,7 +24,9 @@ class SourceExtractorTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertNotEmpty( $sources );
 		$this->assertCount( 1, $sources );
-		$this->assertEquals( 'National Archives', reset( $sources[0]->getName()->getTexts() )->getText() );
+		$texts = $sources[0]->getName()->getTexts();
+		$firstText = reset( $texts );
+		$this->assertEquals( 'National Archives', $firstText->getText() );
 	}
 
 	public function testExtractMetadataWhenMissing() {

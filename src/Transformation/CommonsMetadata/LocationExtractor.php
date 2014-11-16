@@ -24,7 +24,7 @@ class LocationExtractor implements CommonsMetadataExtractor {
 		$latitude = $source->getField( 'GPSLatitude' );
 		$longitude = $source->getField( 'GPSLongitude' );
 
-		if ( isset( $latitude ) && isset ( $longitude ) ) {
+		if ( $latitude !== null && $longitude !== null ) {
 			$coordinateValue = $this->coordinateParser->parse( "$latitude,$longitude" );
 			$target->setLocation( $coordinateValue );
 		}

@@ -14,7 +14,7 @@ class AuthorExtractor implements CommonsMetadataExtractor {
 	 */
 	private $authorRole;
 
-	function __construct( $authorRole ) {
+	public function __construct( $authorRole ) {
 		$this->authorRole = $authorRole;
 	}
 
@@ -25,7 +25,7 @@ class AuthorExtractor implements CommonsMetadataExtractor {
 	public function extractMetadata( CommonsMetadata $source, ObjectMetadata $target ) {
 		$author = $source->getField( 'Artist' );
 
-		if ( isset( $author ) ) {
+		if ( $author !== null ) {
 			$contributor = new Contributor();
 			$contributor->setName( new MonolingualTextValue( 'en', $author ) );
 			$contributor->addRole( $this->authorRole );

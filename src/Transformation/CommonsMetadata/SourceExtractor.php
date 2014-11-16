@@ -16,7 +16,7 @@ class SourceExtractor implements CommonsMetadataExtractor {
 	public function extractMetadata( CommonsMetadata $source, ObjectMetadata $target ) {
 		$sourceName = $source->getField( 'Credit' );
 
-		if ( isset( $sourceName ) ) {
+		if ( $sourceName !== null ) {
 			$sourceField = new Source();
 			$sourceField->setName( new MultilingualTextValue( array(
 				new MonolingualTextValue( 'en', $sourceName ),
