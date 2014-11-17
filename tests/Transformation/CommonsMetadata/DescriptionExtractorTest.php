@@ -19,8 +19,7 @@ class DescriptionExtractorTest extends \PHPUnit_Framework_TestCase {
 		$commonsMetadata = new CommonsMetadata( array() );
 		$extractor = new DescriptionExtractor();
 
-		$metadata = new ObjectMetadata();
-		$metadata->setWorks( array( new Work() ) );
+		$metadata = new ObjectMetadata( new Work() );
 
 		$extractor->extractMetadata( $commonsMetadata, $metadata );
 
@@ -66,8 +65,7 @@ class DescriptionExtractorTest extends \PHPUnit_Framework_TestCase {
 		$commonsMetadata = new CommonsMetadata( $data );
 		$extractor = new DescriptionExtractor();
 
-		$metadata = new ObjectMetadata();
-		$metadata->setWorks( array( new Work() ) );
+		$metadata = new ObjectMetadata( new Work() );
 
 		$extractor->extractMetadata( $commonsMetadata, $metadata );
 

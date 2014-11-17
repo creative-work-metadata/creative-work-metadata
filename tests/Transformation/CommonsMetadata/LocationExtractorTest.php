@@ -46,8 +46,7 @@ class LocationExtractorTest extends \PHPUnit_Framework_TestCase {
 		$commonsMetadata = new CommonsMetadata( $data );
 		$extractor = new LocationExtractor( new GlobeCoordinateParser() );
 
-		$metadata = new ObjectMetadata();
-		$metadata->addWork( new Work() );
+		$metadata = new ObjectMetadata( new Work() );
 
 		$extractor->extractMetadata( $commonsMetadata, $metadata );
 

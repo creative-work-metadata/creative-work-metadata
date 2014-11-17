@@ -55,8 +55,7 @@ class WikibaseImportTransformer implements ImportTransformer {
 			throw new \InvalidArgumentException( '$entity must be an Item' );
 		}
 
-		$metadata = new ObjectMetadata();
-		$metadata->setWorks( array( new Work() ) );
+		$metadata = new ObjectMetadata( new Work() );
 
 		$this->extractLexicalInfo( $entity->getFingerprint(), $metadata );
 

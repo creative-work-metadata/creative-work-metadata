@@ -16,8 +16,7 @@ class SourceExtractorTest extends \PHPUnit_Framework_TestCase {
 		$commonsMetadata = new CommonsMetadata( array( 'Credit' => array( 'value' => 'National Archives' ) ) );
 		$extractor = new SourceExtractor();
 
-		$metadata = new ObjectMetadata();
-		$metadata->addWork( new Work() );
+		$metadata = new ObjectMetadata( new Work() );
 
 		$extractor->extractMetadata( $commonsMetadata, $metadata );
 
@@ -36,8 +35,7 @@ class SourceExtractorTest extends \PHPUnit_Framework_TestCase {
 		) ) ) );
 		$extractor = new SourceExtractor();
 
-		$metadata = new ObjectMetadata();
-		$metadata->addWork( new Work() );
+		$metadata = new ObjectMetadata( new Work() );
 
 		$extractor->extractMetadata( $commonsMetadata, $metadata );
 
@@ -53,8 +51,7 @@ class SourceExtractorTest extends \PHPUnit_Framework_TestCase {
 		$commonsMetadata = new CommonsMetadata( array() );
 		$extractor = new SourceExtractor();
 
-		$metadata = new ObjectMetadata();
-		$metadata->addWork( new Work() );
+		$metadata = new ObjectMetadata( new Work() );
 
 		$extractor->extractMetadata( $commonsMetadata, $metadata );
 

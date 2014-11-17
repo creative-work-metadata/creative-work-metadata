@@ -16,8 +16,7 @@ class AuthorExtractorTest extends \PHPUnit_Framework_TestCase {
 		$commonsMetadata = new CommonsMetadata( array( 'Artist' => array( 'value' => 'E. Elmer' ) ) );
 		$extractor = new AuthorExtractor( 'Q123' );
 
-		$metadata = new ObjectMetadata();
-		$metadata->addWork( new Work() );
+		$metadata = new ObjectMetadata( new Work() );
 
 		$extractor->extractMetadata( $commonsMetadata, $metadata );
 
@@ -33,8 +32,7 @@ class AuthorExtractorTest extends \PHPUnit_Framework_TestCase {
 		$commonsMetadata = new CommonsMetadata( array() );
 		$extractor = new AuthorExtractor( 'Q123' );
 
-		$metadata = new ObjectMetadata();
-		$metadata->addWork( new Work() );
+		$metadata = new ObjectMetadata( new Work() );
 
 		$extractor->extractMetadata( $commonsMetadata, $metadata );
 

@@ -68,8 +68,7 @@ class WorkTypeExtractorTest extends \PHPUnit_Framework_TestCase {
 		$statementArray = new ByPropertyIdArray( $statements );
 		$statementArray->buildIndex();
 
-		$metadata = new ObjectMetadata();
-		$metadata->setWorks( array( new Work() ) );
+		$metadata = new ObjectMetadata( new Work() );
 
 		$extractor->extractStatementInfo( $statementArray, $metadata );
 

@@ -55,6 +55,14 @@ class ObjectMetadata {
 	protected $topics = array();
 
 	/**
+	 * @param Work $work Final work (i.e. the work that is directly represented by the file, as
+	 *  opposed to other works contained in the ObjectMetadata, of which the file is a derivative).
+	 */
+	public function __construct( Work $work ) {
+		$this->addWork( $work );
+	}
+
+	/**
 	 * @return MultilingualTextValue|null
 	 */
 	public function getTitle() {
