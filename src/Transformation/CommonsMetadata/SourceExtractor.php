@@ -14,13 +14,11 @@ class SourceExtractor implements CommonsMetadataExtractor {
 	 * @param ObjectMetadata $target
 	 */
 	public function extractMetadata( CommonsMetadata $source, ObjectMetadata $target ) {
-		$sourceName = $source->getField( 'Credit' );
+		$sourceName = $source->getMultilangValue( 'Credit' );
 
 		if ( $sourceName !== null ) {
 			$sourceField = new Source();
-			$sourceField->setName( new MultilingualTextValue( array(
-				new MonolingualTextValue( 'en', $sourceName ),
-			) ) );
+			$sourceField->setName( $sourceName );
 			$target->addSource( $sourceField );
 		}
 	}

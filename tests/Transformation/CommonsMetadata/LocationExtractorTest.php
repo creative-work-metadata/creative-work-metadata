@@ -2,6 +2,7 @@
 
 namespace StructuredData\Transformation\CommonsMetadata\Tests;
 
+use DataValues\Geo\Parsers\GlobeCoordinateParser;
 use DataValues\Geo\Values\LatLongValue;
 use StructuredData\Transformation\CommonsMetadata\CommonsMetadata;
 use StructuredData\Transformation\CommonsMetadata\LocationExtractor;
@@ -43,7 +44,7 @@ class LocationExtractorTest extends \PHPUnit_Framework_TestCase {
 	 */
 	public function testExtractMetadata( array $data, $expectedResult  ) {
 		$commonsMetadata = new CommonsMetadata( $data );
-		$extractor = new LocationExtractor();
+		$extractor = new LocationExtractor( new GlobeCoordinateParser() );
 
 		$metadata = new ObjectMetadata();
 		$metadata->addWork( new Work() );
@@ -52,7 +53,13 @@ class LocationExtractorTest extends \PHPUnit_Framework_TestCase {
 
 		$location = $metadata->getLocation();
 
-		$this->assertEquals( $expectedResult, $location );
+		if ( $expectedResult === null ) {
+			$this->assertNull( $location );
+		} else {
+			$this->assertNotNull( $location );
+			$latLong = $location->getLatLong();
+			$this->assertEquals( $expectedResult, $latLong );
+		}
 	}
 
 }

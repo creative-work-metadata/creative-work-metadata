@@ -28,8 +28,7 @@ class CommonsMetadataTest extends \PHPUnit_Framework_TestCase {
 		$this->assertFalse( $metadata->hasField( 'Foo' ) );
 		$this->assertNull( $metadata->getField( 'Foo' ) );
 		$this->assertEmpty( $metadata->getList( 'Foo' ) );
-		$this->assertNotNull( $metadata->getMultilangValue( 'Foo' ) );
-		$this->assertEmpty( $metadata->getMultilangValue( 'Foo' )->getTexts() );
+		$this->assertNull( $metadata->getMultilangValue( 'Foo' ) );
 	}
 
 	public function provideGetRaw() {
@@ -105,18 +104,13 @@ class CommonsMetadataTest extends \PHPUnit_Framework_TestCase {
 
 	public function provideGetMultilangValue() {
 		return array(
-			'null' => array(
-				null,
-				array()
-			),
-
 			'string' => array(
 				'foo',
 				array( 'en' =>  new MonolingualTextValue( 'en', 'foo' ) ),
 			),
 
 			'map' => array(
-				array( 'en' => 'foo', 'de' => 'bar' ),
+				array( 'en' => 'foo', 'de' => 'bar', '_type' => 'lang' ),
 				array(
 					'en' =>  new MonolingualTextValue( 'en', 'foo' ),
 					'de' =>  new MonolingualTextValue( 'de', 'bar' )
@@ -137,8 +131,17 @@ class CommonsMetadataTest extends \PHPUnit_Framework_TestCase {
 		$metadata = $this->getCommonsMetadata( 'Foo', $value );
 
 		$values = $metadata->getMultilangValue( 'Foo' );
+
 		$this->assertNotNull( $values );
 		$this->assertEquals( $expectedTexts, $values->getTexts() );
+	}
+
+	/**
+	 * @expectedException \Exception
+	 */
+	public function testGetMultilangValueWithInvalidValue() {
+		$metadata = $this->getCommonsMetadata( 'Foo', array( 'foo', 'bar', 'baz', '_type' => 'ul' ) );
+		$metadata->getMultilangValue( 'Foo' );
 	}
 
 }
