@@ -13,7 +13,19 @@ use Wikibase\DataModel\SerializerFactory;
 
 require_once( __DIR__ . '/vendor/autoload.php' );
 
-$metadata = new ObjectMetadata();
+$work = new Work();
+$work->setTitle( $metadata->getTitle() );
+$work->setTypes( array( Work::TYPE_PAINTING, Work::TYPE_GRAPHIC ) );
+
+$source = new Source();
+$source->setDataItem( 'Q777' );
+
+$topic1 = new Topic();
+$topic1->setDataItem( 'Q9998' );
+$topic2 = new Topic();
+$topic2->setDataItem( 'Q9999' );
+
+$metadata = new ObjectMetadata( $work );
 
 $metadata->setTitle(new MultilingualTextValue( array(
 	new MonolingualTextValue( 'en', 'My hamster Berta' ),
@@ -27,19 +39,6 @@ $metadata->setDescription(new MultilingualTextValue( array(
 
 $metadata->setLocation( new LatLongValue( 15, 28 ) );
 
-$work = new Work();
-$work->setTitle( $metadata->getTitle() );
-$work->setTypes( array( Work::TYPE_PAINTING, Work::TYPE_GRAPHIC ) );
-
-$source = new Source();
-$source->setDataItem( 'Q777' );
-
-$topic1 = new Topic();
-$topic1->setDataItem( 'Q9998' );
-$topic2 = new Topic();
-$topic2->setDataItem( 'Q9999' );
-
-$metadata->addWork( $work );
 $metadata->addSource( $source );
 $metadata->addTopic( $topic1 );
 $metadata->addTopic( $topic2 );

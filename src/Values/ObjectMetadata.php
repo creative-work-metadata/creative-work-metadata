@@ -2,8 +2,8 @@
 
 namespace StructuredData\Values;
 
+use DataValues\Geo\Values\GlobeCoordinateValue;
 use DataValues\MultilingualTextValue;
-use DataValues\Geo\Values\LatLongValue;
 
 /**
  * Main metadata class representing a creative work.
@@ -44,7 +44,7 @@ class ObjectMetadata {
 
 	/**
 	 * Location of the object.
-	 * @var LatLongValue|null
+	 * @var GlobeCoordinateValue|null
 	 */
 	protected $location;
 
@@ -53,6 +53,14 @@ class ObjectMetadata {
 	 * @var Topic[]
 	 */
 	protected $topics = array();
+
+	/**
+	 * @param Work $work Final work (i.e. the work that is directly represented by the file, as
+	 *  opposed to other works contained in the ObjectMetadata, of which the file is a derivative).
+	 */
+	public function __construct( Work $work ) {
+		$this->addWork( $work );
+	}
 
 	/**
 	 * @return MultilingualTextValue|null
@@ -140,14 +148,14 @@ class ObjectMetadata {
 	}
 
 	/**
-	 * @return LatLongValue
+	 * @return GlobeCoordinateValue
 	 */
 	public function getLocation() {
 		return $this->location;
 	}
 
 	/**
-	 * @param LatLongValue $location
+	 * @param GlobeCoordinateValue $location
 	 */
 	public function setLocation( $location ) {
 		$this->location = $location;

@@ -4,6 +4,7 @@ namespace StructuredData\Transformation\CommonsMetadata;
 
 use DataValues\MonolingualTextValue;
 use DataValues\MultilingualTextValue;
+use UnexpectedValueException;
 
 /**
  * Value object representing the output of the CommonsMetadata extension
@@ -84,22 +85,26 @@ class CommonsMetadata {
 
 	/**
 	 * Returns a MultilingualtextValue representation of the field.
-	 * If the field is not set, an empty MultilingualTextValue will be returned.
 	 * All text is sanitized.
 	 *
 	 * @param string $field
 	 *
 	 * @return MultilingualTextValue|null
+	 * @throws \UnexpectedValueException
 	 */
 	public function getMultilangValue( $field ) {
 		$raw = $this->getField( $field );
 
 		if ( $raw === null ) {
-			return new MultilingualTextValue( array() );
+			return null;
 		}
 
 		if ( !is_array( $raw ) ) {
 			$raw = array( 'en' => $raw );
+		} elseif ( !isset( $raw['_type'] ) || $raw['_type'] !== 'lang' ) {
+			// this is a multivalue array, not a multilang array
+			// currently this should not happen, CommonsMetadata squashes multiple values
+			throw new UnexpectedValueException( 'multilang arrays are not allowed' );
 		}
 
 		return $this->makeMultilingualTextValue( $raw );

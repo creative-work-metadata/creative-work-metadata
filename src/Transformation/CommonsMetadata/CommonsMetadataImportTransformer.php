@@ -46,8 +46,7 @@ class CommonsMetadataImportTransformer implements ImportTransformer {
 			throw new \InvalidArgumentException( '$entity must be an CommonsMetadata' );
 		}
 
-		$target = new ObjectMetadata();
-		$target->setWorks( array( new Work() ) );
+		$target = new ObjectMetadata( new Work() );
 
 		$this->extractMetadata( $commonsMetadata, $target );
 
@@ -65,4 +64,3 @@ class CommonsMetadataImportTransformer implements ImportTransformer {
 	}
 
 }
- 

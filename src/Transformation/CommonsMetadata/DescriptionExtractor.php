@@ -24,10 +24,9 @@ class DescriptionExtractor implements CommonsMetadataExtractor {
 	public function extractMetadata( CommonsMetadata $source, ObjectMetadata $target ) {
 		$description = $source->getMultilangValue( 'ImageDescription' );
 
-		if ( reset( $description->getTexts() ) !== null ) {
+		if ( $description !== null ) {
 			$target->setDescription( $description );
 		}
 	}
 
 }
- 

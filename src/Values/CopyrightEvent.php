@@ -2,7 +2,7 @@
 
 namespace StructuredData\Values;
 
-use DataValues\Geo\Values\LatLongValue;
+use DataValues\Geo\Values\GlobeCoordinateValue;
 use DataValues\TimeValue;
 
 /**
@@ -32,7 +32,7 @@ class CopyrightEvent {
 	 * Berne convention defines all publications happening within 30 days as part of the
 	 * first publication.
 	 *
-	 * @var LatLongValue[]
+	 * @var GlobeCoordinateValue[]
 	 */
 	protected $locations = array();
 
@@ -65,23 +65,23 @@ class CopyrightEvent {
 	}
 
 	/**
-	 * @return LatLongValue[]
+	 * @return GlobeCoordinateValue[]
 	 */
 	public function getLocations() {
 		return $this->locations;
 	}
 
 	/**
-	 * @param LatLongValue[] $locations
+	 * @param GlobeCoordinateValue[] $locations
 	 */
 	public function setLocations( array $locations ) {
 		$this->locations = $locations;
 	}
 
 	/**
-	 * @param LatLongValue $location
+	 * @param GlobeCoordinateValue $location
 	 */
-	public function addLocation( LatLongValue $location ) {
+	public function addLocation( GlobeCoordinateValue $location ) {
 		$this->locations[] = $location;
 	}
 }

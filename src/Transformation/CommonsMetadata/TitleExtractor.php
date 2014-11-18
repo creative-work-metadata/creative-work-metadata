@@ -24,10 +24,9 @@ class TitleExtractor implements CommonsMetadataExtractor {
 	public function extractMetadata( CommonsMetadata $source, ObjectMetadata $target ) {
 		$title = $source->getMultilangValue( 'ObjectName' );
 
-		if ( reset( $title->getTexts() ) !== null ) {
+		if ( $title !== null ) {
 			$target->setTitle( $title );
 		}
 	}
 
 }
- 

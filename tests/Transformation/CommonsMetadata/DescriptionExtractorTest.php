@@ -15,13 +15,20 @@ use StructuredData\Values\Work;
  */
 class DescriptionExtractorTest extends \PHPUnit_Framework_TestCase {
 
+	public function testExtractMetadataWithMissingValue() {
+		$commonsMetadata = new CommonsMetadata( array() );
+		$extractor = new DescriptionExtractor();
+
+		$metadata = new ObjectMetadata( new Work() );
+
+		$extractor->extractMetadata( $commonsMetadata, $metadata );
+
+		$description = $metadata->getDescription();
+		$this->assertNull( $description );
+	}
+
 	public function provideExtractMetadata() {
 		return array(
-			'empty' => array(
-				array(),
-				array()
-			),
-
 			'string' => array(
 				array(
 					'ImageDescription' => array(
@@ -39,6 +46,7 @@ class DescriptionExtractorTest extends \PHPUnit_Framework_TestCase {
 						'value' => array(
 							'en' => 'Foo',
 							'de' => 'Bar',
+							'_type' => 'lang',
 						),
 					)
 				),
@@ -57,8 +65,7 @@ class DescriptionExtractorTest extends \PHPUnit_Framework_TestCase {
 		$commonsMetadata = new CommonsMetadata( $data );
 		$extractor = new DescriptionExtractor();
 
-		$metadata = new ObjectMetadata();
-		$metadata->setWorks( array( new Work() ) );
+		$metadata = new ObjectMetadata( new Work() );
 
 		$extractor->extractMetadata( $commonsMetadata, $metadata );
 
@@ -68,4 +75,3 @@ class DescriptionExtractorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 }
- 

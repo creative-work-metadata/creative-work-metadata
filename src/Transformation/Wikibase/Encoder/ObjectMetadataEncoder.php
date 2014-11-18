@@ -2,7 +2,7 @@
 
 namespace StructuredData\Transformation\Wikibase\Encoder;
 
-use DataValues\Geo\Values\LatLongValue;
+use DataValues\Geo\Values\GlobeCoordinateValue;
 use DataValues\MultilingualTextValue;
 use StructuredData\Values\ObjectMetadata;
 use Wikibase\DataModel\Entity\Item;
@@ -58,10 +58,10 @@ class ObjectMetadataEncoder extends Encoder {
 	}
 
 	/**
-	 * @param LatLongValue $location
+	 * @param GlobeCoordinateValue $location
 	 * @param Item $item
 	 */
-	protected function encodeLocation( LatLongValue $location, Item $item ) {
+	protected function encodeLocation( GlobeCoordinateValue $location, Item $item ) {
 		$snak = $this->createSnak( WikidataConstants::PROP_LOCATION, $location );
 		$this->addStatement( $item, $snak );
 	}
